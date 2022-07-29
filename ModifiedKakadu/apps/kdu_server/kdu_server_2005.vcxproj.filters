@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{e9a7820f-5442-4392-9e6d-2b544a5b8915}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="args">
+      <UniqueIdentifier>{4cc7db1c-41ae-442c-a5d3-1ff7b0af9808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="coresys">
+      <UniqueIdentifier>{d912e5ce-efea-47b9-b1fe-8ef1e1ed2472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jp2">
+      <UniqueIdentifier>{96f925b4-9395-4f30-92b1-19f51d731395}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="compressed_io">
+      <UniqueIdentifier>{698033d2-a7e6-4714-9ddc-48ff861f388d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client_server_common">
+      <UniqueIdentifier>{31e76f6c-bfd6-4073-b804-d81b6f328f02}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="connection.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="delivery.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="kdu_serve.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="kdu_server.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="kdu_servex.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\args\args.cpp">
+      <Filter>args</Filter>
+    </ClCompile>
+    <ClCompile Include="..\jp2\jp2.cpp">
+      <Filter>jp2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\caching_sources\client_server.cpp">
+      <Filter>client_server_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\caching_sources\client_server_comms.cpp">
+      <Filter>client_server_common</Filter>
+    </ClCompile>
+    <ClCompile Include="kdu_security.cpp">
+      <Filter>client_server_common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="kdu_serve.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="kdu_servex.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="serve_local.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="server_local.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="servex_local.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\args\kdu_args.h">
+      <Filter>args</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_compressed.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_elementary.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_messaging.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_params.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_sample_processing.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_utils.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jp2\jp2_local.h">
+      <Filter>jp2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jp2\jp2_shared.h">
+      <Filter>jp2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\compressed_io\jp2.h">
+      <Filter>compressed_io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\compressed_io\kdu_cache.h">
+      <Filter>compressed_io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\compressed_io\kdu_file_io.h">
+      <Filter>compressed_io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\caching_sources\client_server_comms.h">
+      <Filter>client_server_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\compressed_io\kdu_client_window.h">
+      <Filter>client_server_common</Filter>
+    </ClInclude>
+    <ClInclude Include="kdu_security.h">
+      <Filter>client_server_common</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

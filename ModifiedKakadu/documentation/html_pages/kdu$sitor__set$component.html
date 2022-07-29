@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_compositor::set_single_component) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__rem$ing_layer.html"> prev </A>||<A HREF="kdu$sitor__cul$ve_layers.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_region_compositor::set_single_component</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_compositor.Set_single_component</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_compositor.set_single_component</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_compositor.set_single_component</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>int</B> set_single_component(
+<B>int</B>&nbsp;stream_idx,
+<B>int</B>&nbsp;component_idx,
+<B>kdu_component_access_mode</B>&nbsp;access_mode=KDU_WANT_CODESTREAM_COMPONENTS)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native int Set_single_component(
+int&nbsp;stream_idx,
+int&nbsp;component_idx,
+int&nbsp;access_mode)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public int set_single_component(
+int&nbsp;stream_idx,
+int&nbsp;component_idx,
+int&nbsp;access_mode)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function set_single_component(
+ByVal&nbsp;stream_idx&nbsp;As&nbsp;Integer,
+ByVal&nbsp;component_idx&nbsp;As&nbsp;Integer,
+ByVal&nbsp;access_mode&nbsp;As&nbsp;Integer) &nbsp;As&nbsp;Integer</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$n_compositor+h.html">"../apps/support/kdu_region_compositor.h"</A>]</P><P><A HREF="kdu$sitor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Calling this function will automatically remove (not
+permanently) all layers previously added using 
+<A HREF="kdu$sitor__add$ing_layer.html">add_compositing_layer</A>, after which it prepares the object to render the
+compositing surface using just the single component
+or the indicated code-stream.
+</P><P>
+ The optional 
+<A HREF="kdu$sitor__set$component.html#access_mode">access_mode</A> argument determines whether the requested image component
+should be a final output component (after applying
+any colour transforms or Part 2 multi-component transforms
+defined at the codestream level) or a raw codestream
+component (obtained after decoding and inverse spatial
+wavelet transformation). In the former case (
+<A HREF="globals.html#KDU_WANT_OUTPUT_COMPONENTS">KDU_WANT_OUTPUT_COMPONENTS</A>), additional components may need to be decompressed
+internally, so that the requested component can be
+reconstructed. Prior to Kakadu v5.0, this function
+could only return codestream components, so the default
+value for the 
+<A HREF="kdu$sitor__set$component.html#access_mode">access_mode</A> argument is set to 
+<A HREF="globals.html#KDU_WANT_CODESTREAM_COMPONENTS">KDU_WANT_CODESTREAM_COMPONENTS</A> for backward compatibility.
+</P><P>
+ If a compositing layer using this code-stream has
+already been opened (and not permanently destroyed),
+the present function will re-use the open code-stream
+resource, rather than opening a new one. Similarly,
+if the code-stream has been used to display a different
+single component previously, the code-stream resource
+can generally be re-used.
+</P><P>
+ Note that this function may cause an error to be generated
+through 
+<A HREF="kdu_error.html">kdu_error</A> if some problem occurs while opening the code-stream.
+</P><P>
+ If the data source is a raw codestream, 
+<A HREF="kdu$sitor__set$component.html#stream_idx">stream_idx</A> must be 0. If the data source is JP2/JPX, 
+<A HREF="kdu$sitor__set$component.html#stream_idx">stream_idx</A> is the positional index of the codestream (starting
+from 0) within the source. If the data source is MJ2,
+<A HREF="kdu$sitor__set$component.html#stream_idx">stream_idx</A> is the unique codestream index whose interpretation
+is described in connection with 
+<A HREF="mj2$ource__get$tream_idx.html">mj2_video_source::get_stream_idx</A>.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ReturnS">Return Value</A></H2><DIV CLASS="indented-text">
+<P>
+-1 if the code-stream cannot yet be opened. This happens
+only when a JPX/JP2/MJ2 data source is served by a
+dynamic cache which does not yet have enough information
+to actually open the code-stream, or to verify whether
+or not it exists. If the requested code-stream is known
+not to exist, the function generates an appropriate
+error through 
+<A HREF="kdu_error.html">kdu_error</A>, rather than returning.
+</P><P>
+ If successful, the function returns the index of the
+actual image component opened, which may be different
+to the supplied 
+<A HREF="kdu$sitor__set$component.html#component_idx">component_idx</A> if that value was outside the range of available components
+for the code-stream.
+</P>
+</DIV>
+<H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="stream_idx">stream_idx</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+</DIV>
+<H4><A NAME="component_idx">component_idx</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+</DIV>
+<H4><A NAME="access_mode">access_mode</A> [<B>kdu_component_access_mode</B>]</H4><DIV CLASS="indented-text">
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__rem$ing_layer.html"> prev </A>||<A HREF="kdu$sitor__cul$ve_layers.html"> next </A>|</P>
+</BODY>
+</HTML>

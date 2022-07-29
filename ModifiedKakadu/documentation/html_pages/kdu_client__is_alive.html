@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_client::is_alive) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="kdu_client__is_$_request.html"> prev </A>||<A HREF="kdu_client__is_idle.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_client::is_alive</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_client.Is_alive</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_client.is_alive</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_client.is_alive</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>bool</B> is_alive(
+)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native boolean Is_alive(
+)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public bool is_alive(
+)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function is_alive(
+) &nbsp;As&nbsp;Boolean</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+c$o+kdu_client+h.html">"../apps/compressed_io/kdu_client.h"</A>]</P><P><A HREF="kdu_client.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Returns true so long as the network management thread
+is alive. This condition is established by a call to
+<A HREF="kdu_client__connect.html">connect</A> and terminated by calls to one of 
+<A HREF="kdu_client__close.html">close</A> or 
+<A HREF="kdu_client__disconnect.html">disconnect</A> or by the server itself terminating the connection.
+</P><P>
+ This enables you to check whether or not a connection
+has been dropped (or the original connection attempt
+failed). In either case, 
+<A HREF="kdu_client__is_active.html">is_active</A> returns true and 
+<A HREF="kdu_client__is_alive.html">is_alive</A> returns false.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="kdu_client__is_$_request.html"> prev </A>||<A HREF="kdu_client__is_idle.html"> next </A>|</P>
+</BODY>
+</HTML>

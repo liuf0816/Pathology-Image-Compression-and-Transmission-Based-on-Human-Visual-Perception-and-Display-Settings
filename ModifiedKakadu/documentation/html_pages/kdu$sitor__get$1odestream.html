@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_compositor::get_next_visible_codestream) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__get$odestream.html"> prev </A>||<A HREF="kdu$sitor__acc$odestream.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_region_compositor::get_next_visible_codestream</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_compositor.Get_next_visible_codestream</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_compositor.get_next_visible_codestream</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_compositor.get_next_visible_codestream</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>kdrc_stream</B>&nbsp;* get_next_visible_codestream(
+<B>kdrc_stream</B>&nbsp;*&nbsp;last_stream_ref,
+<A HREF ="kdu_dims.html">kdu_dims</A>&nbsp;region,
+<B>bool</B>&nbsp;include_alpha)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native long Get_next_visible_codestream(
+long&nbsp;last_stream_ref,
+Kdu_dims&nbsp;region,
+boolean&nbsp;include_alpha)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public IntPtr get_next_visible_codestream(
+IntPtr,
+Kdu_dims&nbsp;region,
+bool&nbsp;include_alpha)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function get_next_visible_codestream(
+ByVal&nbsp;As&nbsp;IntPtr,
+ByVal&nbsp;region&nbsp;As&nbsp;Kdu_dims,
+ByVal&nbsp;include_alpha&nbsp;As&nbsp;Boolean) ByVal&nbsp;As&nbsp;IntPtr</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$n_compositor+h.html">"../apps/support/kdu_region_compositor.h"</A>]</P><P><A HREF="kdu$sitor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Similar to 
+<A HREF="kdu$sitor__get$odestream.html">get_next_codestream</A>, you may use this function to walk through the various
+codestreams which are currently open within the object.
+In this case, however, only those codestreams which
+contribute to the reconstruction of the supplied 
+<A HREF="kdu$sitor__get$1odestream.html#region">region</A> are visited and returned. As for 
+<A HREF="kdu$sitor__get$odestream.html">get_next_codestream</A>, the returned pointer should be treated as an opaque
+reference which is meaningful only when used in conjunction
+with this and other interface functions provided by
+this particular object.
+</P><P>
+ Note that visible codestreams are necessarily active,
+following the definition provided in the description
+of 
+<A HREF="kdu$sitor__get$odestream.html">get_next_codestream</A>. Moreover, if no scale has been successfully installed
+using 
+<A HREF="kdu$sitor__set_scale.html">set_scale</A> (i.e., if 
+<A HREF="kdu$sitor__get$tion_dims.html">get_total_composition_dims</A> returns false), no codestream can possibly be visible
+within the supplied 
+<A HREF="kdu$sitor__get$1odestream.html#region">region</A>, since a rendering coordinate system has not yet been
+established &mdash; in such a case, the function must
+return NULL.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ReturnS">Return Value</A></H2><DIV CLASS="indented-text">
+<P>
+Opaque pointer which may be passed to 
+<A HREF="kdu$sitor__acc$odestream.html">access_codestream</A> or 
+<A HREF="kdu$sitor__get$ream_info.html">get_codestream_info</A>, or used with the present function to advance to the
+next layer codestream in sequence.
+</P>
+</DIV>
+<H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="last_stream_ref">last_stream_ref</A> [<B>kdrc_stream</B>&nbsp;*]</H4><DIV CLASS="indented-text">
+<P>
+If NULL, the returned pointer references the first
+layer codestream in sequence. Otherwise, the function
+returns a reference to the stream following that identified
+by 
+<A HREF="kdu$sitor__get$1odestream.html#last_stream_ref">last_stream_ref</A>.
+</P>
+</DIV>
+<H4><A NAME="region">region</A> [<A HREF ="kdu_dims.html">kdu_dims</A>]</H4><DIV CLASS="indented-text">
+<P>
+Region within which visibility is to be assessed, described
+with respect to the same rendering coordinate system
+as that used by 
+<A HREF="kdu$sitor__set$r_surface.html">set_buffer_surface</A>.
+</P>
+</DIV>
+<H4><A NAME="include_alpha">include_alpha</A> [<B>bool</B>]</H4><DIV CLASS="indented-text">
+<P>
+If false, the function passes over any layer codestreams
+whose contribution to the 
+<A HREF="kdu$sitor__get$1odestream.html#region">region</A> consists only in the provision of alpha blending data.
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__get$odestream.html"> prev </A>||<A HREF="kdu$sitor__acc$odestream.html"> next </A>|</P>
+</BODY>
+</HTML>

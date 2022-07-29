@@ -1,0 +1,62 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kdu_mni", "kdu_mni\kdu_mni_2003.vcproj", "{DCBF2FD2-338A-4A55-AAAA-57300B1623E0}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kdu_aux", "kdu_aux\kdu_aux_2003.vcproj", "{34CEEE6A-8F16-42ED-A414-8528EDA9731E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3F554D75-E9F3-4C19-A685-D5C1B08F20B9} = {3F554D75-E9F3-4C19-A685-D5C1B08F20B9}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KduRender_2003", "csharp_samples\KduRender\KduRender_2003.csproj", "{0C72890E-40D1-458C-ABA2-135A47C72BF7}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KduRender2_2003", "csharp_samples\KduRender2\KduRender2_2003.csproj", "{6166FF12-5CF5-4166-AA44-421720E69DB7}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kdu_jni", "kdu_jni\kdu_jni_2003.vcproj", "{9218B0E7-BC14-4578-95A3-0D45E1D93C2E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kdu_hyperdoc", "..\apps\kdu_hyperdoc\kdu_hyperdoc_2003.vcproj", "{3F554D75-E9F3-4C19-A685-D5C1B08F20B9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DCBF2FD2-338A-4A55-AAAA-57300B1623E0}.Debug.ActiveCfg = Debug|Win32
+		{DCBF2FD2-338A-4A55-AAAA-57300B1623E0}.Debug.Build.0 = Debug|Win32
+		{DCBF2FD2-338A-4A55-AAAA-57300B1623E0}.Release.ActiveCfg = Release|Win32
+		{DCBF2FD2-338A-4A55-AAAA-57300B1623E0}.Release.Build.0 = Release|Win32
+		{34CEEE6A-8F16-42ED-A414-8528EDA9731E}.Debug.ActiveCfg = Debug|Win32
+		{34CEEE6A-8F16-42ED-A414-8528EDA9731E}.Debug.Build.0 = Debug|Win32
+		{34CEEE6A-8F16-42ED-A414-8528EDA9731E}.Release.ActiveCfg = Release|Win32
+		{34CEEE6A-8F16-42ED-A414-8528EDA9731E}.Release.Build.0 = Release|Win32
+		{0C72890E-40D1-458C-ABA2-135A47C72BF7}.Debug.ActiveCfg = Debug|.NET
+		{0C72890E-40D1-458C-ABA2-135A47C72BF7}.Debug.Build.0 = Debug|.NET
+		{0C72890E-40D1-458C-ABA2-135A47C72BF7}.Release.ActiveCfg = Release|.NET
+		{0C72890E-40D1-458C-ABA2-135A47C72BF7}.Release.Build.0 = Release|.NET
+		{6166FF12-5CF5-4166-AA44-421720E69DB7}.Debug.ActiveCfg = Debug|.NET
+		{6166FF12-5CF5-4166-AA44-421720E69DB7}.Debug.Build.0 = Debug|.NET
+		{6166FF12-5CF5-4166-AA44-421720E69DB7}.Release.ActiveCfg = Release|.NET
+		{6166FF12-5CF5-4166-AA44-421720E69DB7}.Release.Build.0 = Release|.NET
+		{9218B0E7-BC14-4578-95A3-0D45E1D93C2E}.Debug.ActiveCfg = Debug|Win32
+		{9218B0E7-BC14-4578-95A3-0D45E1D93C2E}.Debug.Build.0 = Debug|Win32
+		{9218B0E7-BC14-4578-95A3-0D45E1D93C2E}.Release.ActiveCfg = Release|Win32
+		{9218B0E7-BC14-4578-95A3-0D45E1D93C2E}.Release.Build.0 = Release|Win32
+		{3F554D75-E9F3-4C19-A685-D5C1B08F20B9}.Debug.ActiveCfg = Debug|Win32
+		{3F554D75-E9F3-4C19-A685-D5C1B08F20B9}.Debug.Build.0 = Debug|Win32
+		{3F554D75-E9F3-4C19-A685-D5C1B08F20B9}.Release.ActiveCfg = Release|Win32
+		{3F554D75-E9F3-4C19-A685-D5C1B08F20B9}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

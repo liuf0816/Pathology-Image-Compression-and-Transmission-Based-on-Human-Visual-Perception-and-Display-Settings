@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_client::get_window_in_progress) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu_client__post_window.html"> prev </A>||<A HREF="kdu_client__get$ed_bytes.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_client::get_window_in_progress</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_client.Get_window_in_progress</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_client.get_window_in_progress</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_client.get_window_in_progress</EM></H3></DIR></DIR>
+<P CLASS="function-text">virtual <B>bool</B> get_window_in_progress(
+<A HREF ="kdu_window.html">kdu_window</A>&nbsp;*&nbsp;window)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native boolean Get_window_in_progress(
+Kdu_window&nbsp;window)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public bool get_window_in_progress(
+Kdu_window&nbsp;window)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function get_window_in_progress(
+ByVal&nbsp;window&nbsp;As&nbsp;Kdu_window) &nbsp;As&nbsp;Boolean</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+c$o+kdu_client+h.html">"../apps/compressed_io/kdu_client.h"</A>]</P><P><A HREF="kdu_client.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+This function may be used to learn about the window
+which the server is currently servicing.
+</P><P>
+ If the server is idle, meaning that it has finished
+serving all outstanding requests, an appropriate status
+message will appear, but the present function will
+continue to identify the most recently serviced window
+as the one which is in progress.
+</P><P>
+ If there is no active connection with the server (
+<A HREF="kdu_client__is_alive.html">is_alive</A> returns false), the present function returns false,
+with 
+<B>window&rarr;num_components</B> equal to 0.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ReturnS">Return Value</A></H2><DIV CLASS="indented-text">
+<P>
+True if the window which the server is currently serving
+or about to start serving corresponds to the window
+which was most recently requested via a call to 
+<A HREF="kdu_client__post_window.html">post_window</A> which returned true. Otherwise, the function returns
+false, meaning that the server has not yet finished
+serving a previous window request, or no request message
+has yet been sent to the server.
+</P>
+</DIV>
+<H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="window">window</A> [<A HREF ="kdu_window.html">kdu_window</A>&nbsp;*]</H4><DIV CLASS="indented-text">
+<P>
+This argument may be NULL, in which case only the function's
+return value has any meaning. Otherwise, the function
+modifies the various members of this object to indicate
+the current window which is being serviced by the server.
+</P><P>
+ Note that the 
+<A HREF="kdu_window.html#resolution">window&rarr;resolution</A> member will be set to reflect the dimensions of the
+image resolution which is currently being served. These
+can, and probably should, be used in posting new window
+requests at the same image resolution.
+</P><P>
+ If the server has not yet responded to any window
+request, the 
+<A HREF="kdu_client__get$progress.html#window">window</A> object will be set to its initialized state (i.e.,
+the function automatically invokes 
+<A HREF="kdu_window__init.html">window&rarr;init</A>).
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu_client__post_window.html"> prev </A>||<A HREF="kdu_client__get$ed_bytes.html"> next </A>|</P>
+</BODY>
+</HTML>

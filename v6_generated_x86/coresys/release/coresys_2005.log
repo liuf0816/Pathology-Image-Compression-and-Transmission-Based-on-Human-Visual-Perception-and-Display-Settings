@@ -1,0 +1,32 @@
+﻿  block_coding_common.cpp
+  block_decoder.cpp
+  block_encoder.cpp
+coding\block_encoder.cpp(1333): warning C4838: 从“double”转换到“float”需要收缩转换
+coding\block_encoder.cpp(1333): warning C4305: “初始化”: 从“double”到“float”截断
+coding\block_encoder.cpp(1376): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+coding\block_encoder.cpp(1377): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+coding\block_encoder.cpp(1379): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+coding\block_encoder.cpp(1310): warning C4101: “embbed_delta”: 未引用的局部变量
+  decoder.cpp
+  encoder.cpp
+  mq_decoder.cpp
+  mq_encoder.cpp
+  kdu_arch.cpp
+  blocks.cpp
+  codestream.cpp
+  compressed.cpp
+  kernels.cpp
+  messaging.cpp
+  params.cpp
+  roi.cpp
+  kdu_threads.cpp
+  analysis.cpp
+  colour.cpp
+  multi_transform.cpp
+  synthesis.cpp
+  正在生成代码...
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1189,5): warning MSB8012: TargetPath(E:\study\JPEG2000\visually_lossless_JPEG2000\ModifiedKakadu\coresys\.\..\..\v6_generated_x86\coresys\release\coresys.dll) does not match the Linker's OutputFile property value (E:\study\JPEG2000\visually_lossless_JPEG2000\bin_x86\kdu_v61R.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1191,5): warning MSB8012: TargetName(coresys) does not match the Linker's OutputFile property value (kdu_v61R). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+    正在创建库 ..\..\lib_x86\kdu_v61R.lib 和对象 ..\..\lib_x86\kdu_v61R.exp
+  coresys_2005.vcxproj -> E:\study\JPEG2000\visually_lossless_JPEG2000\ModifiedKakadu\coresys\.\..\..\v6_generated_x86\coresys\release\coresys.dll
+  coresys_2005.vcxproj -> .\..\..\v6_generated_x86\coresys\release/kdu_v61R.pdb (Full PDB)

@@ -1,0 +1,15 @@
+﻿  messaging.cpp
+  args.cpp
+  aux_builder.cpp
+  jni_builder.cpp
+  kdu_hyperdoc.cpp
+  mni_builder.cpp
+  正在生成代码...
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1189,5): warning MSB8012: TargetPath(E:\study\JPEG2000\visually_lossless_JPEG2000\ModifiedKakadu\apps\kdu_hyperdoc\.\..\..\..\v6_generated\hyperdoc\debug\kdu_hyperdoc.exe) does not match the Linker's OutputFile property value (E:\study\JPEG2000\visually_lossless_JPEG2000\bin\kdu_hyperdoc.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+  kdu_hyperdoc_2003.vcxproj -> E:\study\JPEG2000\visually_lossless_JPEG2000\ModifiedKakadu\apps\kdu_hyperdoc\.\..\..\..\v6_generated\hyperdoc\debug\kdu_hyperdoc.exe
+  '"E:\study\JPEG2000\visually_lossless_JPEG2000\ModifiedKakadu\apps\kdu_hyperdoc\.\..\..\..\v6_generated\hyperdoc\debug\kdu_hyperdoc.exe"' is not recognized as an internal or external command,
+  operable program or batch file.
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(133,5): error MSB3073: 命令“cd ..\..\documentation
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(133,5): error MSB3073: "E:\study\JPEG2000\visually_lossless_JPEG2000\ModifiedKakadu\apps\kdu_hyperdoc\.\..\..\..\v6_generated\hyperdoc\debug\kdu_hyperdoc.exe" -s hyperdoc_windows.src -o html_pages -java ..\..\java\kdu_jni ..\managed\kdu_jni ..\managed\kdu_aux ..\managed\all_includes -managed ..\managed\kdu_mni ..\managed\kdu_aux ..\managed\all_includes -old_managed_syntax
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(133,5): error MSB3073: 
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(133,5): error MSB3073: :VCEnd”已退出，代码为 9009。

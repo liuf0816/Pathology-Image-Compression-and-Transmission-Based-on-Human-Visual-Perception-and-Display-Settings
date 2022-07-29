@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_compositor::search_overlays) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__upd$_overlays.html"> prev </A>||<A HREF="kdu$sitor__cus$t_overlay.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_region_compositor::search_overlays</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_compositor.Search_overlays</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_compositor.search_overlays</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_compositor.search_overlays</EM></H3></DIR></DIR>
+<P CLASS="function-text"><A HREF ="jpx$anode.html">jpx_metanode</A> search_overlays(
+<A HREF ="kdu_coords.html">kdu_coords</A>&nbsp;point,
+<B>int</B>&nbsp;&amp;&nbsp;codestream_idx)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native Jpx_metanode Search_overlays(
+Kdu_coords&nbsp;point,
+int[]&nbsp;codestream_idx)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public Jpx_metanode search_overlays(
+Kdu_coords&nbsp;point,
+ref&nbsp;int&nbsp;codestream_idx)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function search_overlays(
+ByVal&nbsp;point&nbsp;As&nbsp;Kdu_coords,
+ByRef&nbsp;codestream_idx&nbsp;As&nbsp;Integer) &nbsp;As&nbsp;Jpx_metanode</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$n_compositor+h.html">"../apps/support/kdu_region_compositor.h"</A>]</P><P><A HREF="kdu$sitor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+This function searches through all overlay metadata,
+returning a non-empty interface only if a node is found
+whose bounding box includes the supplied point. The
+function returns an empty interface if overlays are
+not currently enabled, or if the relevant bounding
+box is not currently visible, as determined by the
+opacity of layers which may lie on top of a layer whose
+codestream actually contains the metadata.
+</P><P>
+ Overlays are available only when working with JPX
+data sources.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ReturnS">Return Value</A></H2><DIV CLASS="indented-text">
+<P>
+An empty interface unless a match is found, in which
+case the returned object is represented by an ROI description
+box &mdash; i.e., 
+<A HREF="jpx$anode__get$m_regions.html">jpx_metanode::get_num_regions</A> is guaranteed to return a value greater than 0.
+</P>
+</DIV>
+<H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="point">point</A> [<A HREF ="kdu_coords.html">kdu_coords</A>]</H4><DIV CLASS="indented-text">
+<P>
+Location of a point on the compositing grid, expressed
+using the same coordinate system as that associated
+with 
+<A HREF="kdu$sitor__set$r_surface.html">set_buffer_surface</A>.
+</P>
+</DIV>
+<H4><A NAME="codestream_idx">codestream_idx</A> [<B>int</B>&nbsp;&amp;]</H4><DIV CLASS="indented-text">
+<P>
+Used to return the zero-based index of the codestream
+whose overlay contains the metadata whose bounding
+box contains 
+<A HREF="kdu$sitor__sea$_overlays.html#point">point</A>.
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__upd$_overlays.html"> prev </A>||<A HREF="kdu$sitor__cus$t_overlay.html"> next </A>|</P>
+</BODY>
+</HTML>

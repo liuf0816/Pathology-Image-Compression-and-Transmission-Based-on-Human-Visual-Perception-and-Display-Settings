@@ -1,0 +1,135 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (jp2_input_box) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#FFF491">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#FuncS"> functions </A>|</P>
+<H1><A NAME="ToP">jp2_input_box</A></H1>
+<DIR><DIR><H3><U>Java:</U> class Jp2_input_box</H3></DIR></DIR>
+<DIR><DIR><H3><U>C#:</U> class Cjp2_input_box</H3></DIR></DIR>
+<DIR><DIR><H3><U>VB:</U> class Cjp2_input_box</H3></DIR></DIR>
+<DIR><P>Derives from <A HREF ="kdu$ource.html">kdu_compressed_source</A></P>
+</DIR>
+<P>[Declared in <A HREF="++++apps+c$essed_io+jp2+h.html">"../apps/compressed_io/jp2.h"</A>]</P><P ALIGN="CENTER"><HR></P><H3>Known objects derived from this class</H3><UL>
+<LI><A HREF="jp2_source.html">jp2_source</A></LI>
+<LI><A HREF="jpx$t_box.html">jpx_input_box</A></LI>
+</UL>
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Provides full access to a single JP2 family box. The
+object implements the interface members of its virtual
+base class 
+<A HREF="kdu$ource.html">kdu_compressed_source</A>, so that any open contiguous code-stream box may be
+passed directly to 
+<A HREF="kdu$tream__create__1.html">kdu_codestream::create</A> to gain full access to its embedded code-stream. For
+other box types, the 
+<A HREF="jp2$t_box__read__1.html">read</A> member may be used directly to read from the box.
+</P><P>
+ It is not safe to assign one 
+<A HREF="jp2$t_box.html">jp2_input_box</A> object directly to another.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="FuncS">Public Functions</A></H2><DIV CLASS="indented-text">
+<P><A HREF="jp2$t_box__jp2$input_box.html">jp2_input_box</A> {<U>Java:</U> Jp2_input_box}
+ {<U>C#:</U> Cjp2_input_box}
+ {<U>VB:</U> New}
+</P>
+<P><A HREF="jp2$t_box__~jp$input_box.html">~jp2_input_box</A> [virtual] {<U>Java:</U> Native_destroy}
+ {<U>C#:</U> Dispose}
+ {<U>VB:</U> Dispose}
+</P>
+<P><A HREF="jp2$t_box__operator=.html">operator=</A></P>
+<P><A HREF="jp2$t_box__exists.html">exists</A> {<U>Java:</U> Exists}
+ {<U>C#:</U> exists}
+ {<U>VB:</U> exists}
+</P>
+<P><A HREF="jp2$t_box__operator!.html">operator!</A></P>
+<P><A HREF="jp2$t_box__open__1.html">open</A> [virtual] <EM>(2 forms)</EM> {<U>Java:</U> Open}
+ {<U>C#:</U> open}
+ {<U>VB:</U> open}
+</P>
+<P><A HREF="jp2$t_box__open_next.html">open_next</A> [virtual] {<U>Java:</U> Open_next}
+ {<U>C#:</U> open_next}
+ {<U>VB:</U> open_next}
+</P>
+<P><A HREF="jp2$t_box__close.html">close</A> [virtual] {<U>Java:</U> Close}
+ {<U>C#:</U> close}
+ {<U>VB:</U> close}
+</P>
+<P><A HREF="jp2$t_box__transplant.html">transplant</A> [virtual] {<U>Java:</U> Transplant}
+ {<U>C#:</U> transplant}
+ {<U>VB:</U> transplant}
+</P>
+<P><A HREF="jp2$t_box__has$ng_source.html">has_caching_source</A> {<U>Java:</U> Has_caching_source}
+ {<U>C#:</U> has_caching_source}
+ {<U>VB:</U> has_caching_source}
+</P>
+<P><A HREF="jp2$t_box__get_box_type.html">get_box_type</A> {<U>Java:</U> Get_box_type}
+ {<U>C#:</U> get_box_type}
+ {<U>VB:</U> get_box_type}
+</P>
+<P><A HREF="jp2$t_box__get_locator.html">get_locator</A> {<U>Java:</U> Get_locator}
+ {<U>C#:</U> get_locator}
+ {<U>VB:</U> get_locator}
+</P>
+<P><A HREF="jp2$t_box__get$er_length.html">get_box_header_length</A> {<U>Java:</U> Get_box_header_length}
+ {<U>C#:</U> get_box_header_length}
+ {<U>VB:</U> get_box_header_length}
+</P>
+<P><A HREF="jp2$t_box__get$abilities.html">get_capabilities</A> [virtual] {<U>Java:</U> Get_capabilities}
+ {<U>C#:</U> get_capabilities}
+ {<U>VB:</U> get_capabilities}
+</P>
+<P><A HREF="jp2$t_box__get$ing_bytes.html">get_remaining_bytes</A> {<U>Java:</U> Get_remaining_bytes}
+ {<U>C#:</U> get_remaining_bytes}
+ {<U>VB:</U> get_remaining_bytes}
+</P>
+<P><A HREF="jp2$t_box__get$box_bytes.html">get_box_bytes</A> {<U>Java:</U> Get_box_bytes}
+ {<U>C#:</U> get_box_bytes}
+ {<U>VB:</U> get_box_bytes}
+</P>
+<P><A HREF="jp2$t_box__is_complete.html">is_complete</A> {<U>Java:</U> Is_complete}
+ {<U>C#:</U> is_complete}
+ {<U>VB:</U> is_complete}
+</P>
+<P><A HREF="jp2$t_box__seek.html">seek</A> [virtual] {<U>Java:</U> Seek}
+ {<U>C#:</U> seek}
+ {<U>VB:</U> seek}
+</P>
+<P><A HREF="jp2$t_box__get_pos.html">get_pos</A> [virtual] {<U>Java:</U> Get_pos}
+ {<U>C#:</U> get_pos}
+ {<U>VB:</U> get_pos}
+</P>
+<P><A HREF="jp2$t_box__loa$in_memory.html">load_in_memory</A> [virtual] {<U>Java:</U> Load_in_memory}
+ {<U>C#:</U> load_in_memory}
+ {<U>VB:</U> load_in_memory}
+</P>
+<P><A HREF="jp2$t_box__acc$ss_memory.html">access_memory</A> [virtual]</P>
+<P><A HREF="jp2$t_box__read__1.html">read</A> [virtual] <EM>(6 forms)</EM> {<U>Java:</U> Read}
+ {<U>C#:</U> read}
+ {<U>VB:</U> read}
+</P>
+<P><A HREF="jp2$t_box__set$der_scope.html">set_tileheader_scope</A> [virtual] {<U>Java:</U> Set_tileheader_scope}
+ {<U>C#:</U> set_tileheader_scope}
+ {<U>VB:</U> set_tileheader_scope}
+</P>
+<P><A HREF="jp2$t_box__set$nct_scope.html">set_precinct_scope</A> [virtual] {<U>Java:</U> Set_precinct_scope}
+ {<U>C#:</U> set_precinct_scope}
+ {<U>VB:</U> set_precinct_scope}
+</P>
+<P><A HREF="jp2$t_box__set$eam_scope.html">set_codestream_scope</A> [virtual] {<U>Java:</U> Set_codestream_scope}
+ {<U>C#:</U> set_codestream_scope}
+ {<U>VB:</U> set_codestream_scope}
+</P>
+</DIV>
+<P ALIGN="CENTER"><HR></P>
+<P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#FuncS"> functions </A>|</P>
+</BODY>
+</HTML>

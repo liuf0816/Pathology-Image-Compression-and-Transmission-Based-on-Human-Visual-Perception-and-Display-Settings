@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{b644c0ad-6025-4c7f-bb8f-9a270e5c67c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="coresys">
+      <UniqueIdentifier>{b9baa091-0f4c-4a7e-b1de-972c20fa1fe2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="args">
+      <UniqueIdentifier>{7b504fcb-c727-4094-a584-9b33caea83b4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="kdu_text_extractor.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\coresys\messaging\messaging.cpp">
+      <Filter>coresys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\args\args.cpp">
+      <Filter>args</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="text_extractor_local.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_elementary.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_messaging.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\args\kdu_args.h">
+      <Filter>args</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

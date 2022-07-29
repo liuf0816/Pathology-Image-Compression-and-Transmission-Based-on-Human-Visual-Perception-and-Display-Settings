@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{e4bbe806-c46d-4f90-8a9b-c873250cab7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="coresys">
+      <UniqueIdentifier>{88786bce-ffd0-4023-a291-64481fd05063}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="args">
+      <UniqueIdentifier>{1fb005f4-c84f-4dee-8c27-b36c88cf4b9f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="aux_builder.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="jni_builder.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="kdu_hyperdoc.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="mni_builder.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\coresys\messaging\messaging.cpp">
+      <Filter>coresys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\args\args.cpp">
+      <Filter>args</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="hyperdoc_local.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_elementary.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_messaging.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\args\kdu_args.h">
+      <Filter>args</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,129 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_decompressor::process) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$essor__process__3.html"> prev </A>||<A HREF="kdu$essor__process__5.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_region_decompressor::process</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_decompressor.Process</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_decompressor.process</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_decompressor.process</EM></H3></DIR></DIR>
+<P>Overload navigation: <B><A HREF="kdu$essor__process__1.html">1</A>,
+<A HREF="kdu$essor__process__2.html">2</A>,
+<A HREF="kdu$essor__process__3.html">3</A>,
+4,
+<A HREF="kdu$essor__process__5.html">5</A></B></P>
+<P CLASS="function-text"><B>bool</B> process(
+<B>kdu_byte</B>&nbsp;*&nbsp;buffer,
+<B>int</B>&nbsp;*&nbsp;channel_offsets,
+<B>int</B>&nbsp;pixel_gap,
+<A HREF ="kdu_coords.html">kdu_coords</A>&nbsp;buffer_origin,
+<B>int</B>&nbsp;row_gap,
+<B>int</B>&nbsp;suggested_increment,
+<B>int</B>&nbsp;max_region_pixels,
+<A HREF ="kdu_dims.html">kdu_dims</A>&nbsp;&amp;&nbsp;incomplete_region,
+<A HREF ="kdu_dims.html">kdu_dims</A>&nbsp;&amp;&nbsp;new_region,
+<B>int</B>&nbsp;precision_bits=8,
+<B>bool</B>&nbsp;measure_row_gap_in_pixels=true)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native boolean Process(
+byte[]&nbsp;buffer,
+int[]&nbsp;channel_offsets,
+int&nbsp;pixel_gap,
+Kdu_coords&nbsp;buffer_origin,
+int&nbsp;row_gap,
+int&nbsp;suggested_increment,
+int&nbsp;max_region_pixels,
+Kdu_dims&nbsp;incomplete_region,
+Kdu_dims&nbsp;new_region,
+int&nbsp;precision_bits,
+boolean&nbsp;measure_row_gap_in_pixels)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public bool process(
+byte[]&nbsp;buffer,
+int[]&nbsp;channel_offsets,
+int&nbsp;pixel_gap,
+Kdu_coords&nbsp;buffer_origin,
+int&nbsp;row_gap,
+int&nbsp;suggested_increment,
+int&nbsp;max_region_pixels,
+Kdu_dims&nbsp;incomplete_region,
+Kdu_dims&nbsp;new_region,
+int&nbsp;precision_bits,
+bool&nbsp;measure_row_gap_in_pixels)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function process(
+ByVal&nbsp;buffer()&nbsp;As&nbsp;Byte,
+ByVal&nbsp;channel_offsets()&nbsp;As&nbsp;Integer,
+ByVal&nbsp;pixel_gap&nbsp;As&nbsp;Integer,
+ByVal&nbsp;buffer_origin&nbsp;As&nbsp;Kdu_coords,
+ByVal&nbsp;row_gap&nbsp;As&nbsp;Integer,
+ByVal&nbsp;suggested_increment&nbsp;As&nbsp;Integer,
+ByVal&nbsp;max_region_pixels&nbsp;As&nbsp;Integer,
+ByVal&nbsp;incomplete_region&nbsp;As&nbsp;Kdu_dims,
+ByVal&nbsp;new_region&nbsp;As&nbsp;Kdu_dims,
+ByVal&nbsp;precision_bits&nbsp;As&nbsp;Integer,
+ByVal&nbsp;measure_row_gap_in_pixels&nbsp;As&nbsp;Boolean) &nbsp;As&nbsp;Boolean</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$decompressor+h.html">"../apps/support/kdu_region_decompressor.h"</A>]</P><P><A HREF="kdu$essor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Same as the first form of the overloaded 
+<A HREF="kdu$essor__process__1.html">process</A> function, except that the channel buffers are interleaved
+into a single buffer that is max_region_pixels*num_channels
+in size.
+</P><P>
+ The main reason for providing this function in addition
+to the first form of the 
+<A HREF="kdu$essor__process__1.html">process</A> function, is that this version is readily mapped to
+alternate language bindings, such as Java.
+</P><P>
+ Unfortunately, with this function, the ability to
+specifically declare that you are not interested in
+one or more of the channels (by setting the relevant
+buffer pointer to NULL) must be sacrificed.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="buffer">buffer</A> [<B>kdu_byte</B>&nbsp;*]</H4><DIV CLASS="indented-text">
+<P>
+Array max_region_pixels*kdu_channel_mapping::num_channels
+in size.
+</P>
+</DIV>
+<H4><A NAME="channel_offsets">channel_offsets</A> [<B>int</B>&nbsp;*]</H4><DIV CLASS="indented-text">
+<P>
+Array with 
+<A HREF="kdu$pping.html#num_channels">kdu_channel_mapping::num_channels</A> entries. Each entry specifies the offset in bytes
+to the first byte of the associated channel data.
+</P>
+</DIV>
+<H4><A NAME="pixel_gap">pixel_gap</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+</DIV>
+<H4><A NAME="buffer_origin">buffer_origin</A> [<A HREF ="kdu_coords.html">kdu_coords</A>]</H4><DIV CLASS="indented-text">
+</DIV>
+<H4><A NAME="row_gap">row_gap</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+</DIV>
+<H4><A NAME="suggested_increment">suggested_increment</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+</DIV>
+<H4><A NAME="max_region_pixels">max_region_pixels</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+</DIV>
+<H4><A NAME="incomplete_region">incomplete_region</A> [<A HREF ="kdu_dims.html">kdu_dims</A>&nbsp;&amp;]</H4><DIV CLASS="indented-text">
+</DIV>
+<H4><A NAME="new_region">new_region</A> [<A HREF ="kdu_dims.html">kdu_dims</A>&nbsp;&amp;]</H4><DIV CLASS="indented-text">
+</DIV>
+<H4><A NAME="precision_bits">precision_bits</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+</DIV>
+<H4><A NAME="measure_row_gap_in_pixels">measure_row_gap_in_pixels</A> [<B>bool</B>]</H4><DIV CLASS="indented-text">
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$essor__process__3.html"> prev </A>||<A HREF="kdu$essor__process__5.html"> next </A>|</P>
+</BODY>
+</HTML>

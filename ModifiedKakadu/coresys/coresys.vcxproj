@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+    <ProjectGuid>{37700AA2-C954-43D7-9F8E-9D0CC69ED1FA}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\..\..\v6_generated\coresys\release\</OutDir>
+    <IntDir>.\..\..\v6_generated\coresys\release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\..\..\v6_generated\coresys\debug\</OutDir>
+    <IntDir>.\..\..\v6_generated\coresys\debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;_USRDLL;CORESYS_EXPORTS;KDU_PENTIUM_MSVC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\..\v6_generated\coresys\release\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\..\..\v6_generated\coresys\release\coresys.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\..\v6_generated\coresys\release\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\..\v6_generated\coresys\release\</ProgramDataBaseFileName>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\v6_generated\coresys\release\coresys.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\v6_generated\coresys\release\coresys.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\kdu_v61R.dll</OutputFile>
+      <ImportLibrary>..\..\lib\kdu_v61R.lib</ImportLibrary>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>false</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_USRDLL;CORESYS_EXPORTS;KDU_PENTIUM_MSVC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\..\..\v6_generated\coresys\debug\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\..\..\v6_generated\coresys\debug\coresys.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\..\..\v6_generated\coresys\debug\</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\..\v6_generated\coresys\debug\</ProgramDataBaseFileName>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\..\..\v6_generated\coresys\debug\coresys.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\..\..\v6_generated\coresys\debug\coresys.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>..\..\bin\kdu_v61D.dll</OutputFile>
+      <ImportLibrary>..\..\lib\kdu_v61D.lib</ImportLibrary>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="coding\block_coding_common.cpp" />
+    <ClCompile Include="coding\block_decoder.cpp" />
+    <ClCompile Include="coding\block_encoder.cpp" />
+    <ClCompile Include="coding\decoder.cpp" />
+    <ClCompile Include="coding\encoder.cpp" />
+    <ClCompile Include="coding\mq_decoder.cpp" />
+    <ClCompile Include="coding\mq_encoder.cpp" />
+    <ClCompile Include="common\kdu_arch.cpp" />
+    <ClCompile Include="compressed\blocks.cpp" />
+    <ClCompile Include="compressed\codestream.cpp" />
+    <ClCompile Include="compressed\compressed.cpp" />
+    <ClCompile Include="kernels\kernels.cpp" />
+    <ClCompile Include="messaging\messaging.cpp" />
+    <ClCompile Include="parameters\params.cpp" />
+    <ClCompile Include="roi\roi.cpp" />
+    <ClCompile Include="threads\kdu_threads.cpp" />
+    <ClCompile Include="transform\analysis.cpp" />
+    <ClCompile Include="transform\colour.cpp" />
+    <ClCompile Include="transform\multi_transform.cpp" />
+    <ClCompile Include="transform\synthesis.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="coding\block_coding_common.h" />
+    <ClInclude Include="coding\mq_decoder.h" />
+    <ClInclude Include="coding\mq_encoder.h" />
+    <ClInclude Include="coding\msvc_block_decode_asm.h" />
+    <ClInclude Include="coding\msvc_coder_mmx_local.h" />
+    <ClInclude Include="common\kdu_arch.h" />
+    <ClInclude Include="common\kdu_block_coding.h" />
+    <ClInclude Include="common\kdu_compressed.h" />
+    <ClInclude Include="common\kdu_elementary.h" />
+    <ClInclude Include="common\kdu_kernels.h" />
+    <ClInclude Include="common\kdu_messaging.h" />
+    <ClInclude Include="common\kdu_params.h" />
+    <ClInclude Include="common\kdu_roi_processing.h" />
+    <ClInclude Include="common\kdu_sample_processing.h" />
+    <ClInclude Include="common\kdu_threads.h" />
+    <ClInclude Include="common\kdu_utils.h" />
+    <ClInclude Include="compressed\compressed_local.h" />
+    <ClInclude Include="parameters\params_local.h" />
+    <ClInclude Include="roi\roi_local.h" />
+    <ClInclude Include="threads\threads_local.h" />
+    <ClInclude Include="transform\analysis_local.h" />
+    <ClInclude Include="transform\gcc_colour_altivec_local.h" />
+    <ClInclude Include="transform\gcc_colour_mmx_local.h" />
+    <ClInclude Include="transform\gcc_colour_sparcvis_local.h" />
+    <ClInclude Include="transform\gcc_dwt_altivec_local.h" />
+    <ClInclude Include="transform\gcc_dwt_mmx_local.h" />
+    <ClInclude Include="transform\gcc_dwt_sparcvis_local.h" />
+    <ClInclude Include="transform\msvc_colour_mmx_local.h" />
+    <ClInclude Include="transform\msvc_dwt_mmx_local.h" />
+    <ClInclude Include="transform\multi_transform_local.h" />
+    <ClInclude Include="transform\synthesis_local.h" />
+    <ClInclude Include="transform\transform_local.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="coresys.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

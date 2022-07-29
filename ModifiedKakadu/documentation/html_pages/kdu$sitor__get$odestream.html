@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_compositor::get_next_codestream) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__fin$am_region.html"> prev </A>||<A HREF="kdu$sitor__get$1odestream.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_region_compositor::get_next_codestream</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_compositor.Get_next_codestream</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_compositor.get_next_codestream</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_compositor.get_next_codestream</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>kdrc_stream</B>&nbsp;* get_next_codestream(
+<B>kdrc_stream</B>&nbsp;*&nbsp;last_stream_ref,
+<B>bool</B>&nbsp;only_active_codestreams,
+<B>bool</B>&nbsp;no_duplicates)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native long Get_next_codestream(
+long&nbsp;last_stream_ref,
+boolean&nbsp;only_active_codestreams,
+boolean&nbsp;no_duplicates)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public IntPtr get_next_codestream(
+IntPtr,
+bool&nbsp;only_active_codestreams,
+bool&nbsp;no_duplicates)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function get_next_codestream(
+ByVal&nbsp;As&nbsp;IntPtr,
+ByVal&nbsp;only_active_codestreams&nbsp;As&nbsp;Boolean,
+ByVal&nbsp;no_duplicates&nbsp;As&nbsp;Boolean) ByVal&nbsp;As&nbsp;IntPtr</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$n_compositor+h.html">"../apps/support/kdu_region_compositor.h"</A>]</P><P><A HREF="kdu$sitor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+You may use this function to walk through the various
+codestreams which are currently open within the object.
+The codestreams are referenced by an opaque pointer
+type, 
+<B>kdrc_stream</B>, which is provided only to enhance type checking (it
+could be any address for all you care).
+</P><P>
+ It is important to realize that an underlying JPEG2000
+code-stream may be used multiple times within a single
+image composition. For example, a single composited
+JPX frame may use the same code-stream to create a
+compositing layer which is placed at the top left hand
+corner of the compositing surface, and another layer
+which is overlayed at the bottom right hand corner
+of the compositing surface, possibly even with different
+scales.
+</P><P>
+ To distinguish between such multiple uses, the present
+function is best understood as returning references
+to "layer codestreams". A layer codestream is associated
+with exactly one real JPEG2000 code-stream, and at
+most one compositing layer. Both the code-stream index
+and the layer index may subsequently be retrieved by
+calling 
+<A HREF="kdu$sitor__get$ream_info.html">get_codestream_info</A>.
+</P><P>
+ If you are using the present function to scan through
+real JPEG2000 code-streams, you may wish to set the
+<A HREF="kdu$sitor__get$odestream.html#no_duplicates">no_duplicates</A> argument to true. Where a JPEG2000 code-stream is
+shared by multiple layer codestreams, this option will
+ensure that only one of the layer codestreams will
+appear in the sequence. You have no guarantees regarding
+which of the layer codestreams which share a common
+JPEG2000 code-stream will appear in the sequence, except
+that if any of them is active, the layer codestream
+which appears in the sequence will be one of the active
+ones.
+</P><P>
+ There are two types of layer codestreams: 1) those
+which are currently in use (active), contributing to
+the composited image which is being (or has been) built;
+and 2) those which are inactive, but have not been
+permanently destroyed. Included in the latter category
+are code-streams which were opened to serve compositing
+layers which have since been removed using 
+<A HREF="kdu$sitor__rem$ing_layer.html">remove_compositing_layer</A>, but not permanently. The 
+<A HREF="kdu$sitor__get$odestream.html#only_active_codestreams">only_active_codestreams</A> argument determines whether you wish to scan through
+only the active code-streams, or both the active and
+inactive code-streams.
+</P><P>
+ To access the first layer codestream in sequence,
+supply a NULL 
+<A HREF="kdu$sitor__get$odestream.html#last_stream_ref">last_stream_ref</A> argument. The next layer codestreams in sequence may
+then be retrieved by supplying the previously returned
+pointer as the 
+<A HREF="kdu$sitor__get$odestream.html#last_stream_ref">last_stream_ref</A> argument in a subsequent call to this function. The
+actual sequence in which the layer codestreams appear
+has no particular significance and may potentially
+change each time a set of compositing layers is configured.
+However, you can be guaranteed that all active layer
+codestreams will appear before any inactive layer codestreams
+in the sequence.
+</P><P>
+ You may optionally restrict the search to those layer-codestreams
+which are used to produce image intensity samples which
+are visible or potentially visible (i.e., not completely
+covered by opaque foreground content) within a defined
+region, given by the 
+<B>visibility_region</B> argument.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ReturnS">Return Value</A></H2><DIV CLASS="indented-text">
+<P>
+Opaque pointer which may be passed to 
+<A HREF="kdu$sitor__acc$odestream.html">access_codestream</A> or 
+<A HREF="kdu$sitor__get$ream_info.html">get_codestream_info</A>, or used with the present function to advance to the
+next layer codestream in sequence.
+</P>
+</DIV>
+<H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="last_stream_ref">last_stream_ref</A> [<B>kdrc_stream</B>&nbsp;*]</H4><DIV CLASS="indented-text">
+<P>
+If NULL, the returned pointer references the first
+layer codestream in sequence. Otherwise, the function
+returns a reference to the stream following that identified
+by 
+<A HREF="kdu$sitor__get$odestream.html#last_stream_ref">last_stream_ref</A>, after skipping over any duplicates (if 
+<A HREF="kdu$sitor__get$odestream.html#no_duplicates">no_duplicates</A>=true).
+</P>
+</DIV>
+<H4><A NAME="only_active_codestreams">only_active_codestreams</A> [<B>bool</B>]</H4><DIV CLASS="indented-text">
+<P>
+If true, the sequence of layer codestreams returned
+by this function will include only those on the internal
+active list; not the inactive ones.
+</P>
+</DIV>
+<H4><A NAME="no_duplicates">no_duplicates</A> [<B>bool</B>]</H4><DIV CLASS="indented-text">
+<P>
+If true, the sequence of layer codestreams returned
+by this function will skip layer codestreams as required
+to ensure that only one of the layer codestreams which
+use any given JPEG2000 code-stream will be seen.
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__fin$am_region.html"> prev </A>||<A HREF="kdu$sitor__get$1odestream.html"> next </A>|</P>
+</BODY>
+</HTML>

@@ -1,0 +1,235 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_compositor::add_compositing_layer) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__set$tion_mode.html"> prev </A>||<A HREF="kdu$sitor__cha$yer_frame.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_region_compositor::add_compositing_layer</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_compositor.Add_compositing_layer</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_compositor.add_compositing_layer</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_compositor.add_compositing_layer</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>bool</B> add_compositing_layer(
+<B>int</B>&nbsp;layer_idx,
+<A HREF ="kdu_dims.html">kdu_dims</A>&nbsp;full_source_dims,
+<A HREF ="kdu_dims.html">kdu_dims</A>&nbsp;full_target_dims,
+<B>bool</B>&nbsp;transpose=false,
+<B>bool</B>&nbsp;vflip=false,
+<B>bool</B>&nbsp;hflip=false,
+<B>int</B>&nbsp;frame_idx=0,
+<B>int</B>&nbsp;field_handling=2)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native boolean Add_compositing_layer(
+int&nbsp;layer_idx,
+Kdu_dims&nbsp;full_source_dims,
+Kdu_dims&nbsp;full_target_dims,
+boolean&nbsp;transpose,
+boolean&nbsp;vflip,
+boolean&nbsp;hflip,
+int&nbsp;frame_idx,
+int&nbsp;field_handling)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public bool add_compositing_layer(
+int&nbsp;layer_idx,
+Kdu_dims&nbsp;full_source_dims,
+Kdu_dims&nbsp;full_target_dims,
+bool&nbsp;transpose,
+bool&nbsp;vflip,
+bool&nbsp;hflip,
+int&nbsp;frame_idx,
+int&nbsp;field_handling)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function add_compositing_layer(
+ByVal&nbsp;layer_idx&nbsp;As&nbsp;Integer,
+ByVal&nbsp;full_source_dims&nbsp;As&nbsp;Kdu_dims,
+ByVal&nbsp;full_target_dims&nbsp;As&nbsp;Kdu_dims,
+ByVal&nbsp;transpose&nbsp;As&nbsp;Boolean,
+ByVal&nbsp;vflip&nbsp;As&nbsp;Boolean,
+ByVal&nbsp;hflip&nbsp;As&nbsp;Boolean,
+ByVal&nbsp;frame_idx&nbsp;As&nbsp;Integer,
+ByVal&nbsp;field_handling&nbsp;As&nbsp;Integer) &nbsp;As&nbsp;Boolean</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$n_compositor+h.html">"../apps/support/kdu_region_compositor.h"</A>]</P><P><A HREF="kdu$sitor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Use this function to build up a composited image from
+one or more compositing layers. You must add at least
+one compositing layer, either directly or via 
+<A HREF="kdu$sitor__set_frame.html">set_frame</A>, or else call 
+<A HREF="kdu$sitor__set$component.html">set_single_component</A>, before using this object to render imagery. You can
+add layers to or remove them from the composition at
+any time, although you should call 
+<A HREF="kdu$sitor__get$on_buffer.html">get_composition_buffer</A> again after you have finished modifying the layer
+configuration to get a buffer which will legitimately
+represent the composed imagery.
+</P><P>
+ Regardless of whether the referenced layer has already
+be added, it will be placed at the end of the compositing
+list. Where multiple layers are to be composited together,
+they are rendered onto the composition surface in the
+order given by this list.
+</P><P>
+ For MJ2 (Motion JPEG2000) data sources, the 
+<A HREF="kdu$sitor__add$ing_layer.html#layer_idx">layer_idx</A> argument is interpreted as the MJ2 track index, minus
+1, so that 0 represents the first track. In this case,
+the 
+<A HREF="kdu$sitor__add$ing_layer.html#frame_idx">frame_idx</A> and 
+<B>field_idx</B> arguments may be used to control the particular frame
+to be rendered and the way in which fields should be
+treated for interlaced material.
+</P><P>
+ Note that this function may cause an error to be generated
+through 
+<A HREF="kdu_error.html">kdu_error</A> if composition is not possible (e.g. due to colour
+conversion problems), or if an error occurs while examining
+the embedded code-streams. For many applications, the
+implementation of 
+<A HREF="kdu_error.html">kdu_error</A> will throw an exception.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ReturnS">Return Value</A></H2><DIV CLASS="indented-text">
+<P>
+True if the requested compositing layer could be accessed
+within the source with which the present object was
+opened. A false return occurs only when a JPX/JP2/MJ2
+data-source is served by a dynamic cache which does
+not currently contain sufficient information to open
+the compositing layer, along with all of its codestream
+main headers. If the requested layer simply does not
+exist, an error will be generated through 
+<A HREF="kdu_error.html">kdu_error</A> rather than returning false. For MJ2 sources, the
+function also generates an error if the requested layer
+(track) is found not to be a video track.
+</P>
+</DIV>
+<H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="layer_idx">layer_idx</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+<P>
+For JPX data sources, this is the index (starting from
+0) of the compositing layer within that source. For
+raw code-streams, this argument must be 0. For MJ2
+data sources, this is the track number minus 1, so
+that 0 corresponds to the first track.
+</P>
+</DIV>
+<H4><A NAME="full_source_dims">full_source_dims</A> [<A HREF ="kdu_dims.html">kdu_dims</A>]</H4><DIV CLASS="indented-text">
+<P>
+Ignored if the data source is not a JP2/JPX source
+&mdash; i.e., if it is a raw codestream or a MJ2 (Motion
+JPEG2000) source. See below for what happens in such
+cases.
+</P><P>
+ For JP2/JPX sources, this argument identifies the
+portion of this layer which is to be used for compositing.
+This region is expressed on the layer's own reference
+grid, relative to the upper left hand corner of the
+layer image on that grid. The layer reference grid
+is often identical to the high resolution canvas of
+its code-stream (or code-streams). More generally,
+however, the layer reference grid is related to the
+code-stream canvas grids by the information returned
+via 
+<A HREF="jpx$1ource__get$stration.html">jpx_layer_source::get_codestream_registration</A>.
+</P><P>
+ If this region is empty (
+<A HREF="kdu_dims__is_empty.html">full_source_dims.is_empty</A> returns true) or if the data source is anything other
+than JP2/JPX, the entire source layer will be used
+for compositing.
+</P><P>
+ If the data source is a raw code-stream, the 
+<A HREF="kdu$sitor__add$ing_layer.html#full_source_dims">full_source_dims</A> and 
+<A HREF="kdu$sitor__add$ing_layer.html#full_target_dims">full_target_dims</A> arguments are ignored and the composited image dimensions
+at full size (scale=1) are taken to be those of the
+first image component, rather than those of the high
+resolution canvas.
+</P>
+</DIV>
+<H4><A NAME="full_target_dims">full_target_dims</A> [<A HREF ="kdu_dims.html">kdu_dims</A>]</H4><DIV CLASS="indented-text">
+<P>
+Ignored if the data source is a raw code-stream (see
+<A HREF="kdu$sitor__add$ing_layer.html#full_source_dims">full_source_dims</A> for an explanation of what happens in this case).
+</P><P>
+ For JP2/JPX or MJ2 sources, this argument identifies
+the region of the composited image onto which the source
+region should be composited. Scaling may be required,
+which could cause some image degradation. The coordinates
+are expressed relative to the composited image which
+would be produced if it were rendered without any scaling
+(zooming), rotation, flipping or transposition of the
+composed image. In particular, the actual dimensions
+of the composed image may be altered by the 
+<A HREF="kdu$sitor__set_scale.html">set_scale</A> function.
+</P>
+</DIV>
+<H4><A NAME="transpose">transpose</A> [<B>bool</B>]</H4><DIV CLASS="indented-text">
+<P>
+This argument may be used together with 
+<A HREF="kdu$sitor__add$ing_layer.html#vflip">vflip</A> and 
+<A HREF="kdu$sitor__add$ing_layer.html#hflip">hflip</A> to adjust the geometry of the layer's source material
+prior to scaling and offsetting it to the 
+<A HREF="kdu$sitor__add$ing_layer.html#full_target_dims">full_target_dims</A> region. The geometric transformations performed here
+are equivalent to those described for the 
+<A HREF="kdu$tream__cha$ppearance.html">kdu_codestream::change_appearance</A> function. Note that these geometric transformations
+are in addition to any which might be specified by
+<A HREF="kdu$sitor__set_scale.html">set_scale</A>. They provide useful means of incorporating track-specific
+geometric tranformations which may be specified in
+an MJ2 data source, recovered via 
+<A HREF="mj2$ource__get$_geometry.html">mj2_video_source::get_cardinal_geometry</A>, but may be used in conjunction with any data source.
+</P>
+</DIV>
+<H4><A NAME="vflip">vflip</A> [<B>bool</B>]</H4><DIV CLASS="indented-text">
+<P>
+See 
+<A HREF="kdu$sitor__add$ing_layer.html#transpose">transpose</A>.
+</P>
+</DIV>
+<H4><A NAME="hflip">hflip</A> [<B>bool</B>]</H4><DIV CLASS="indented-text">
+<P>
+See 
+<A HREF="kdu$sitor__add$ing_layer.html#transpose">transpose</A>.
+</P>
+</DIV>
+<H4><A NAME="frame_idx">frame_idx</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+<P>
+For MJ2 data sources, this argument specifies the frame
+number (starting from 0) within the track (layer).
+Note, however, that only one compositing layer is created
+for any given track, so adding a new layer with the
+same 
+<A HREF="kdu$sitor__add$ing_layer.html#layer_idx">layer_idx</A> as an existing one, but a different 
+<A HREF="kdu$sitor__add$ing_layer.html#frame_idx">frame_idx</A> will effectively cause the previous layer to be removed
+first. For non-MJ2 data sources, this argument should
+be 0. If the frame does not exist, the function generates
+an error.
+</P>
+</DIV>
+<H4><A NAME="field_handling">field_handling</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+<P>
+For MJ2 data sources, this argument specifies the way
+in which fields are to be handled where the frames
+are interlaced. The argument is ignored if the frames
+are progressive or the data source is not MJ2. The
+following values are defined:
+</P><UL><LI>
+0 &mdash; render the frame from field 0 only
+</LI><LI>
+1 &mdash; render the frame from field 1 only
+</LI><LI>
+2 &mdash; render the frame from field 0 and field 1
+(interlaced)
+</LI><LI>
+3 &mdash; render the frame from field 1 of the current
+frame and field 0 of the next frame (interlaced), or
+from field 1 alone if this is already the last frame.
+</LI></UL>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__set$tion_mode.html"> prev </A>||<A HREF="kdu$sitor__cha$yer_frame.html"> next </A>|</P>
+</BODY>
+</HTML>

@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_cache::acquire_lock) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="kdu_cache__get_pos.html"> prev </A>||<A HREF="kdu_cache__release_lock.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_cache::acquire_lock</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_cache.Acquire_lock</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_cache.acquire_lock</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_cache.acquire_lock</EM></H3></DIR></DIR>
+<DIR><DIR><DIR><H3><U>CALLBACK:</U> Your implementation of this function in Java, C# or another foreign language will be called from the internal implementation of this object.  See "java-and_managed-interfaces.pdf" for more on CALLBACK functions.</H3>
+<P CLASS="function-text">virtual <B>void</B> acquire_lock(
+)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native void Acquire_lock(
+)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public void acquire_lock(
+)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Sub acquire_lock(
+) </EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+c$io+kdu_cache+h.html">"../apps/compressed_io/kdu_cache.h"</A>]</P><P><A HREF="kdu_cache.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+This function, together with 
+<A HREF="kdu_cache__release_lock.html">release_lock</A>, is used to guard access to the cached data. The implementation
+here does nothing at all, but a derived class may override
+these virtual functions to provide synchronization
+for multi-threaded environments. In particular, if
+<A HREF="kdu_cache__add$o_databin.html">add_to_databin</A> or any of the other cache management functions might
+is to be called from a different thread to that which
+reads data from the cache, the present function should
+lock, a mutex and the 
+<A HREF="kdu_cache__release_lock.html">release_lock</A> function should release it.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="kdu_cache__get_pos.html"> prev </A>||<A HREF="kdu_cache__release_lock.html"> next </A>|</P>
+</BODY>
+</HTML>

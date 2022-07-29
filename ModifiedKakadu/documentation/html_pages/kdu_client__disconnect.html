@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_client::disconnect) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu_client__is_idle.html"> prev </A>||<A HREF="kdu_client__close.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_client::disconnect</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_client.Disconnect</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_client.disconnect</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_client.disconnect</EM></H3></DIR></DIR>
+<P CLASS="function-text">virtual <B>void</B> disconnect(
+<B>bool</B>&nbsp;keep_transport_open=false,
+<B>int</B>&nbsp;timeout_milliseconds=2000)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native void Disconnect(
+boolean&nbsp;keep_transport_open,
+int&nbsp;timeout_milliseconds)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public void disconnect(
+bool&nbsp;keep_transport_open,
+int&nbsp;timeout_milliseconds)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Sub disconnect(
+ByVal&nbsp;keep_transport_open&nbsp;As&nbsp;Boolean,
+ByVal&nbsp;timeout_milliseconds&nbsp;As&nbsp;Integer) </EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+c$o+kdu_client+h.html">"../apps/compressed_io/kdu_client.h"</A>]</P><P><A HREF="kdu_client.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Severs the connection with the server, but leaves the
+object open for reading data from the cache. This function
+may safely be called at any time. If the 
+<A HREF="kdu_client__close.html">close</A> function has not been called since the last call to
+<A HREF="kdu_client__connect.html">connect</A>, 
+<A HREF="kdu_client__is_active.html">is_active</A> remains true, while 
+<A HREF="kdu_client__is_alive.html">is_alive</A> goes false.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="keep_transport_open">keep_transport_open</A> [<B>bool</B>]</H4><DIV CLASS="indented-text">
+<P>
+If true, an attempt will be made to keep the underlying
+transport channel (typically one or more TCP channels)
+alive, so that a subsequent call to 
+<A HREF="kdu_client__connect.html">connect</A> can try to re-use it, rather than instantiating a
+new transport channel from scratch.
+</P><P>
+ Whether or not this is successful depends on a number
+of factors, but the most critical step is waiting for
+the connection to become idle (i.e., 
+<A HREF="kdu_client__is_idle.html">is_idle</A> should return true) before calling this function.
+You can encourage the connection to become idle as
+soon as possible by issuing a 
+<A HREF="kdu_client__post_window.html">post_window</A> call which specifies an empty window. If the connection
+is not idle when the present function is invoked, it
+is most likely that the transport channel will need
+to be destroyed.
+</P><P>
+ For HTTP connections, if the connection is idle when
+this function is called, the "Connection: close" header
+will not be issued by the client, and the TCP transport
+channel will be saved for later re-use, so long as
+the server does not issue with a "Connection: close"
+header with its response.
+</P><P>
+ If you have kept the transport channel open and later
+wish to close it, you have only to call this function
+again with 
+<A HREF="kdu_client__disconnect.html#keep_transport_open">keep_transport_open</A>=false. There is no need for an intervening call to
+<A HREF="kdu_client__connect.html">connect</A> or 
+<A HREF="kdu_client__close.html">close</A>.
+</P>
+</DIV>
+<H4><A NAME="timeout_milliseconds">timeout_milliseconds</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+<P>
+Ignored unless 
+<A HREF="kdu_client__disconnect.html#keep_transport_open">keep_transport_open</A> is true. In that case, this argument identifies the
+maximum amount of time for which the function might
+be blocked while the internal disconnection mechanism
+waits to ensure that the server has released the transport
+channel from its use in the current session. This should
+not be long, because it will not be waiting unless
+the connection was already idle. Nevertheless, if the
+server does not released the transport within that
+time, or if an earlier determination can be made that
+it will not do so, the function closes the existing
+transport channel anyway, so that it cannot be re-used.
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu_client__is_idle.html"> prev </A>||<A HREF="kdu_client__close.html"> next </A>|</P>
+</BODY>
+</HTML>

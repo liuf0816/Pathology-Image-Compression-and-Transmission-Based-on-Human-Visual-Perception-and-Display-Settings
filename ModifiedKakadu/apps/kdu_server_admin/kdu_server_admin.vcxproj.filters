@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{d73c82ef-9533-4d6d-9ec2-86f14f525108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="args">
+      <UniqueIdentifier>{29508b9a-2216-497c-af48-ee3f9c18e512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="coresys">
+      <UniqueIdentifier>{f0778e11-e6ad-48ba-839f-6708c84344fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client_server_common">
+      <UniqueIdentifier>{d6964fb9-cfa3-4b59-8894-eae74a49f693}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="kdu_server_admin.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\args\args.cpp">
+      <Filter>args</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\coresys\messaging\messaging.cpp">
+      <Filter>coresys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\caching_sources\client_server_comms.cpp">
+      <Filter>client_server_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\kdu_server\kdu_security.cpp">
+      <Filter>client_server_common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\args\kdu_args.h">
+      <Filter>args</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_elementary.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_messaging.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\caching_sources\client_server_comms.h">
+      <Filter>client_server_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\kdu_server\kdu_security.h">
+      <Filter>client_server_common</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

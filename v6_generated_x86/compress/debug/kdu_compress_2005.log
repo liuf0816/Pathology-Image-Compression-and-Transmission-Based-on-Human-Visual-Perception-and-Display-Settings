@@ -1,0 +1,12 @@
+﻿  args.cpp
+  image_in.cpp
+  kdu_tiff.cpp
+  palette.cpp
+  jp2.cpp
+  jpx.cpp
+  kdu_compress.cpp
+  roi_sources.cpp
+  正在生成代码...
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1189,5): warning MSB8012: TargetPath(E:\study\JPEG2000\visually_lossless_JPEG2000\ModifiedKakadu\apps\kdu_compress\.\..\..\..\v6_generated_x86\compress\debug\kdu_compress_2005.exe) does not match the Linker's OutputFile property value (E:\study\JPEG2000\visually_lossless_JPEG2000\bin_x86\kdu_compress.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1191,5): warning MSB8012: TargetName(kdu_compress_2005) does not match the Linker's OutputFile property value (kdu_compress). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+  kdu_compress_2005.vcxproj -> E:\study\JPEG2000\visually_lossless_JPEG2000\ModifiedKakadu\apps\kdu_compress\.\..\..\..\v6_generated_x86\compress\debug\kdu_compress_2005.exe

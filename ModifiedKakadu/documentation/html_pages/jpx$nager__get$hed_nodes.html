@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (jpx_meta_manager::get_touched_nodes) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="jpx$nager__locate_node.html"> prev </A>||<A HREF="jpx$nager__pee$hed_nodes.html"> next </A>|</P>
+<H1><A NAME="ToP">jpx_meta_manager::get_touched_nodes</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Jpx_meta_manager.Get_touched_nodes</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Cjpx_meta_manager.get_touched_nodes</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Cjpx_meta_manager.get_touched_nodes</EM></H3></DIR></DIR>
+<P CLASS="function-text"><A HREF ="jpx$anode.html">jpx_metanode</A> get_touched_nodes(
+)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native Jpx_metanode Get_touched_nodes(
+)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public Jpx_metanode get_touched_nodes(
+)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function get_touched_nodes(
+) &nbsp;As&nbsp;Jpx_metanode</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+c$essed_io+jpx+h.html">"../apps/compressed_io/jpx.h"</A>]</P><P><A HREF="jpx$nager.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+You can use this function to traverse all nodes in
+the metadata tree which have been created for the first
+time, deleted, changed in any way, or explicitly touched
+by 
+<A HREF="jpx$anode__touch.html">jpx_metanode::touch</A>. Once a node is returned by this function, it will
+not be returned again, unless it is again added onto
+the internal list of touched nodes, by one of the following
+events:
+</P><UL><LI>
+If a node is deleted, using 
+<A HREF="jpx$anode__delete_node.html">jpx_metanode::delete_node</A> it will be appended to the internal list of touched
+nodes. Of course, its descendants will also be deleted
+and appended to the list. Remember that deleted nodes
+are not physically deleted from memory; one good reason
+for this is to enable applications to track such deletions
+via the present function.
+</LI><LI>
+If a node's ancestry is changed by 
+<A HREF="jpx$anode__cha$ge_parent.html">jpx_metanode::change_parent</A> the node and all of its descencants will be marked
+as having a changed ancestry and appended to the list
+of touched nodes.
+</LI><LI>
+If a node's data is changed by 
+<A HREF="jpx$anode__cha$_to_label.html">jpx_metanode::change_to_label</A> or 
+<A HREF="jpx$anode__cha$o_delayed.html">jpx_metanode::change_to_delayed</A>, the node will be appended to the list of touched
+nodes and all of its descendants will be marked as
+having a changed ancestry and also appended.
+</LI><LI>
+If 
+<A HREF="jpx$anode__touch.html">jpx_metanode::touch</A> is invoked, the node and all of its descedants will
+be appended to the list of touched nodes.
+</LI></UL><P>
+ This function is provided to facilitate efficient
+updating of application-defined structures as metadata
+becomes available (e.g., from a dynamic cache) or as
+metadata is edited.
+</P><P>
+ To find out what changes actually occurred, you can
+use the functions 
+<A HREF="jpx$anode__is_changed.html">jpx_metanode::is_changed</A>, 
+<A HREF="jpx$anode__is_deleted.html">jpx_metanode::is_deleted</A> and 
+<A HREF="jpx$anode__anc$r_changed.html">jpx_metanode::ancestor_changed</A>. All of these functions may return false if the node
+is newly parsed from a data source or otherwise created,
+or if the node found its way onto the touched node
+list as a result of a call to 
+<A HREF="jpx$anode__touch.html">jpx_metanode::touch</A>.
+</P><P>
+ One feature of this function is that metanodes which
+are freshly created as a result of parsing an input
+file are not considered o be touched until their principle
+box has been completely parsed (this is the first sub-box
+of an association box, or else it is the sole box associated
+with the metanode). This means that every metanode
+you find on the touched list is available in full,
+except that its descendants, if any, might not yet
+all be available. Once they become available, they
+too will be added to the touched list.
+</P><P>
+ Noting that all of the conditions which cause a node
+to be added to the internal list of touched nodes also
+cause all of the node's descendants to be added to
+the list, we are able to guarantee that parents always
+appear in the list before their descendants, if any.
+This can simplify some applications of the function.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="jpx$nager__locate_node.html"> prev </A>||<A HREF="jpx$nager__pee$hed_nodes.html"> next </A>|</P>
+</BODY>
+</HTML>

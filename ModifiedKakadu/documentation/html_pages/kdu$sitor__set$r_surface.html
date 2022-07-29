@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_compositor::set_buffer_surface) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__fin$mal_scale.html"> prev </A>||<A HREF="kdu$sitor__che$cale_code.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_region_compositor::set_buffer_surface</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_compositor.Set_buffer_surface</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_compositor.set_buffer_surface</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_compositor.set_buffer_surface</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>void</B> set_buffer_surface(
+<A HREF ="kdu_dims.html">kdu_dims</A>&nbsp;region,
+<B>kdu_int32</B>&nbsp;background=-1)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native void Set_buffer_surface(
+Kdu_dims&nbsp;region,
+int&nbsp;background)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public void set_buffer_surface(
+Kdu_dims&nbsp;region,
+int&nbsp;background)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Sub set_buffer_surface(
+ByVal&nbsp;region&nbsp;As&nbsp;Kdu_dims,
+ByVal&nbsp;background&nbsp;As&nbsp;Integer) </EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$n_compositor+h.html">"../apps/support/kdu_region_compositor.h"</A>]</P><P><A HREF="kdu$sitor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Use this function to change the location, size and/or
+background colour of the buffered region within the
+complete composited image.
+</P><P>
+ Note that the actual buffer region might be different
+to that specified, if the one supplied does not lie
+fully within the composited image region. Call 
+<A HREF="kdu$sitor__get$on_buffer.html">get_composition_buffer</A> to find out the actual buffer region.
+</P><P>
+ Note also that any buffer previously recovered using
+<A HREF="kdu$sitor__get$on_buffer.html">get_composition_buffer</A> will no longer be valid. You must call that function
+again to obtain a valid buffer.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="region">region</A> [<A HREF ="kdu_dims.html">kdu_dims</A>]</H4><DIV CLASS="indented-text">
+</DIV>
+<H4><A NAME="background">background</A> [<B>kdu_int32</B>]</H4><DIV CLASS="indented-text">
+<P>
+You can use this optional argument to control the colour
+(and alpha) of the background onto which imagery is
+painted. The background colour is of interest when
+the imagery is alpha blended. The background alpha
+is of interest if you would like to be able to blend
+the the final composited image onto yet another buffer
+in your application.
+</P><P>
+ To be specific, if opaque imagery is composited over
+some region of the background, the alpha value in that
+region will be changed to 255. If, however, partially
+transparent imagery is blended over some region, having
+an alpha value of Ai, and the background (supplied
+here) has an alpha value of Ab, the alpha value in
+that location will be changed to a suitably rounded
+version of
+</P><UL><LI>
+255 - [(255-Ab) * (255-Ai) / 255]
+</LI></UL><P>
+ This means, for example, that fully transparent imagery,
+composed on top of a background will not alter the
+alpha value of the background. If also means that the
+alpha value will be 255 (opaque) if either the background
+or the composed imagery are opaque.
+</P><P>
+ Note that the most significant byte of the 
+<A HREF="kdu$sitor__set$r_surface.html#background">background</A> word holds the alpha value; the second most significant
+byte holds the red value; this is followed by the green
+value and then blue in the least significant byte of
+the 32-bit word.
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__fin$mal_scale.html"> prev </A>||<A HREF="kdu$sitor__che$cale_code.html"> next </A>|</P>
+</BODY>
+</HTML>

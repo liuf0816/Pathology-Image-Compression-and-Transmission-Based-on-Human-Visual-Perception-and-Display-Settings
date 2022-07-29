@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_decompressor::finish) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="kdu$essor__process__5.html"> prev </A>|</P>
+<H1><A NAME="ToP">kdu_region_decompressor::finish</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_decompressor.Finish</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_decompressor.finish</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_decompressor.finish</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>bool</B> finish(
+)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native boolean Finish(
+)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public bool finish(
+)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function finish(
+) &nbsp;As&nbsp;Boolean</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$decompressor+h.html">"../apps/support/kdu_region_decompressor.h"</A>]</P><P><A HREF="kdu$essor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Every call to 
+<A HREF="kdu$essor__start.html">start</A> must be matched by a call to 
+<A HREF="kdu$essor__finish.html">finish</A>; however, you may call 
+<A HREF="kdu$essor__finish.html">finish</A> prematurely. This allows processing to be terminated
+on a region whose intersection with a display window
+has become too small to justify the effort.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ReturnS">Return Value</A></H2><DIV CLASS="indented-text">
+<P>
+If the function returns false, a fatal error has occurred
+in the underlying code-stream and you must destroy
+the codestream object (use 
+<A HREF="kdu$tream__destroy.html">kdu_codestream::destroy</A>). You will probably also have to close the relevant
+compressed data source (e.g., using 
+<A HREF="kdu$ource__close.html">kdu_compressed_source::close</A>). This should clean up all the resources correctly,
+in preparation for subsequently opening a new code-stream
+for further decompression and rendering work.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="kdu$essor__process__5.html"> prev </A>|</P>
+</BODY>
+</HTML>

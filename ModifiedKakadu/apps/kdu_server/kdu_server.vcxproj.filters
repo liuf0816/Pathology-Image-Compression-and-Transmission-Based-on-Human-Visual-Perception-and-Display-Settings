@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{dc3917dc-c662-4b7d-8881-490686fc03ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="args">
+      <UniqueIdentifier>{a9d71ea7-63c0-479b-a060-ca20a13b5bb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="coresys">
+      <UniqueIdentifier>{d2f1082e-e291-448a-b772-c27d8bf597a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jp2">
+      <UniqueIdentifier>{e71e3ff5-5181-486e-a3fb-a25986a4d33b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="compressed_io">
+      <UniqueIdentifier>{3ae5abeb-9f28-4be1-b842-b71adf619ae2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client_server_common">
+      <UniqueIdentifier>{044f1988-8d88-4a30-8c16-641a0a2f8672}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="connection.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="delivery.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="kdu_serve.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="kdu_server.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="kdu_servex.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\args\args.cpp">
+      <Filter>args</Filter>
+    </ClCompile>
+    <ClCompile Include="..\jp2\jp2.cpp">
+      <Filter>jp2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\caching_sources\client_server.cpp">
+      <Filter>client_server_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\caching_sources\client_server_comms.cpp">
+      <Filter>client_server_common</Filter>
+    </ClCompile>
+    <ClCompile Include="kdu_security.cpp">
+      <Filter>client_server_common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="kdu_serve.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="kdu_servex.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="serve_local.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="server_local.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="servex_local.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\args\kdu_args.h">
+      <Filter>args</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_compressed.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_elementary.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_kernels.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_messaging.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_params.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_sample_processing.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_threads.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\coresys\common\kdu_utils.h">
+      <Filter>coresys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jp2\jp2_local.h">
+      <Filter>jp2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\jp2\jp2_shared.h">
+      <Filter>jp2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\compressed_io\jp2.h">
+      <Filter>compressed_io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\compressed_io\kdu_cache.h">
+      <Filter>compressed_io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\compressed_io\kdu_file_io.h">
+      <Filter>compressed_io</Filter>
+    </ClInclude>
+    <ClInclude Include="..\caching_sources\client_server_comms.h">
+      <Filter>client_server_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\compressed_io\kdu_client_window.h">
+      <Filter>client_server_common</Filter>
+    </ClInclude>
+    <ClInclude Include="kdu_security.h">
+      <Filter>client_server_common</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

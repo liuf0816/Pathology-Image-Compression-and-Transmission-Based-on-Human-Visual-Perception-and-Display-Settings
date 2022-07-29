@@ -1,0 +1,65 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_message_formatter) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#FFF491">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#FuncS"> functions </A>|</P>
+<H1><A NAME="ToP">kdu_message_formatter</A></H1>
+<DIR><DIR><H3><U>Java:</U> class Kdu_message_formatter</H3></DIR></DIR>
+<DIR><DIR><H3><U>C#:</U> class Ckdu_message_formatter</H3></DIR></DIR>
+<DIR><DIR><H3><U>VB:</U> class Ckdu_message_formatter</H3></DIR></DIR>
+<DIR><P>Derives from <A HREF ="kdu$ssage.html">kdu_message</A></P>
+</DIR>
+<P>[Declared in <A HREF="++++coresy$du_messaging+h.html">"../coresys/common/kdu_messaging.h"</A>]</P><P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Derived 
+<A HREF="kdu$ssage.html">kdu_message</A> object which formats the text it receives into lines
+of a given maximum length (as supplied to the constructor)
+and passes the lines to a separate 
+<A HREF="kdu$ssage.html">kdu_message</A>-derived object. Every attempt is made to avoid breaking
+words (space-delimited tokens) across lines. Tab characters
+are converted to a single space, unless they appear
+immediately after the last new-line (or immediately
+after the object is created). In the latter case, each
+tab increments indentation for the paragraph (currently
+by 4 spaces). Indentation state is cancelled at the
+next new-line character.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="FuncS">Public Functions</A></H2><DIV CLASS="indented-text">
+<P><A HREF="kdu$atter__kdu$formatter.html">kdu_message_formatter</A> {<U>Java:</U> Kdu_message_formatter}
+ {<U>C#:</U> Ckdu_message_formatter}
+ {<U>VB:</U> New}
+</P>
+<P><A HREF="kdu$atter__~kd$formatter.html">~kdu_message_formatter</A> [virtual] {<U>Java:</U> Native_destroy}
+ {<U>C#:</U> Dispose}
+ {<U>VB:</U> Dispose}
+</P>
+<P><A HREF="kdu$atter__set$er_indent.html">set_master_indent</A> {<U>Java:</U> Set_master_indent}
+ {<U>C#:</U> set_master_indent}
+ {<U>VB:</U> set_master_indent}
+</P>
+<P><A HREF="kdu$atter__put_text__1.html">put_text</A> [virtual] <EM>(2 forms)</EM> {<U>Java:</U> Put_text}
+ {<U>C#:</U> put_text}
+ {<U>VB:</U> put_text}
+</P>
+<P><A HREF="kdu$atter__flush.html">flush</A> [virtual] {<U>Java:</U> Flush}
+ {<U>C#:</U> flush}
+ {<U>VB:</U> flush}
+</P>
+<P><A HREF="kdu$atter__sta$t_message.html">start_message</A> [virtual] {<U>Java:</U> Start_message}
+ {<U>C#:</U> start_message}
+ {<U>VB:</U> start_message}
+</P>
+</DIV>
+<P ALIGN="CENTER"><HR></P>
+<P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#FuncS"> functions </A>|</P>
+</BODY>
+</HTML>

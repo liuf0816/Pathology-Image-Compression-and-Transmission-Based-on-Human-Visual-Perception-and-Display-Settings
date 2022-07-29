@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_compositor::change_compositing_layer_frame) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__add$ing_layer.html"> prev </A>||<A HREF="kdu$sitor__rem$ing_layer.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_region_compositor::change_compositing_layer_frame</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_compositor.Change_compositing_layer_frame</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_compositor.change_compositing_layer_frame</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_compositor.change_compositing_layer_frame</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>bool</B> change_compositing_layer_frame(
+<B>int</B>&nbsp;layer_idx,
+<B>int</B>&nbsp;frame_idx)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native boolean Change_compositing_layer_frame(
+int&nbsp;layer_idx,
+int&nbsp;frame_idx)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public bool change_compositing_layer_frame(
+int&nbsp;layer_idx,
+int&nbsp;frame_idx)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function change_compositing_layer_frame(
+ByVal&nbsp;layer_idx&nbsp;As&nbsp;Integer,
+ByVal&nbsp;frame_idx&nbsp;As&nbsp;Integer) &nbsp;As&nbsp;Boolean</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$n_compositor+h.html">"../apps/support/kdu_region_compositor.h"</A>]</P><P><A HREF="kdu$sitor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+This function provides an efficient mechanism for changing
+the particular frame which is currently being used
+to render the indicated compositing layer. The function
+is useful only when the compositing layer happens to
+represent a Motion JPEG2000 video track, since JPX
+compositing layers do not have multiple frames. The
+advantage of using this function is that no further
+calls to 
+<A HREF="kdu$sitor__set_scale.html">set_scale</A> or 
+<A HREF="kdu$sitor__set$r_surface.html">set_buffer_surface</A> are required to prepare the rendering process. Furthermore,
+the internal machinery will attempt to reuse codestream
+structures in an efficient way, rather than creating
+them from scratch.
+</P><P>
+ If 
+<A HREF="kdu$sitor__cha$yer_frame.html#layer_idx">layer_idx</A> does not correspond to a currently active compositing
+layer, this function will generate an error through
+<A HREF="kdu_error.html">kdu_error</A>.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ReturnS">Return Value</A></H2><DIV CLASS="indented-text">
+<P>
+False if the requested frame does not exist or cannot
+yet be opened because the source is served by a dynamic
+cache, which does not yet have sufficient information.
+In this case, the object will continue to produce content
+based on the original frame, but subsequent calls to
+<A HREF="kdu$sitor__refresh.html">refresh</A> and 
+<A HREF="kdu$sitor__set_scale.html">set_scale</A> will attempt to make the frame change which was requested
+here, if more information has since become available
+in the cache &mdash; it is not necessary, therefore,
+to call this function again if a false return was produced
+while using a valid frame index.
+</P>
+</DIV>
+<H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="layer_idx">layer_idx</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+<P>
+Same interpretation as in 
+<A HREF="kdu$sitor__add$ing_layer.html">add_compositing_layer</A>.
+</P>
+</DIV>
+<H4><A NAME="frame_idx">frame_idx</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+<P>
+Same interpretation as in 
+<A HREF="kdu$sitor__add$ing_layer.html">add_compositing_layer</A>.
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__add$ing_layer.html"> prev </A>||<A HREF="kdu$sitor__rem$ing_layer.html"> next </A>|</P>
+</BODY>
+</HTML>

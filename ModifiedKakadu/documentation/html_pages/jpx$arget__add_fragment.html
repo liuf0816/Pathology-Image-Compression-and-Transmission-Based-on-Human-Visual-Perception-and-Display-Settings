@@ -1,0 +1,84 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (jpx_codestream_target::add_fragment) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="jpx$arget__acc$ment_list.html"> prev </A>||<A HREF="jpx$arget__wri$ent_table.html"> next </A>|</P>
+<H1><A NAME="ToP">jpx_codestream_target::add_fragment</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Jpx_codestream_target.Add_fragment</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Cjpx_codestream_target.add_fragment</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Cjpx_codestream_target.add_fragment</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>void</B> add_fragment(
+<B>const char *</B>&nbsp;url,
+<B>kdu_long</B>&nbsp;offset,
+<B>kdu_long</B>&nbsp;length)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native void Add_fragment(
+String&nbsp;url,
+long&nbsp;offset,
+long&nbsp;length)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public void add_fragment(
+string&nbsp;url,
+long&nbsp;offset,
+long&nbsp;length)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Sub add_fragment(
+ByVal&nbsp;url&nbsp;As&nbsp;String,
+ByVal&nbsp;offset&nbsp;As&nbsp;Long,
+ByVal&nbsp;length&nbsp;As&nbsp;Long) </EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+c$essed_io+jpx+h.html">"../apps/compressed_io/jpx.h"</A>]</P><P><A HREF="jpx$arget.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+This function wraps up the functionalities of 
+<A HREF="jpx$_list__add_fragment.html">jpx_fragment_list::add_fragment</A> and 
+<A HREF="jp2$ences__add_url.html">jp2_data_references::add_url</A>, working with the fragment list maintained by the
+present object and the data references object maintained
+by the containing 
+<A HREF="jpx_target.html">jpx_target</A> object. The former may be recovered using 
+<A HREF="jpx$arget__acc$ment_list.html">access_fragment_list</A>, while the latter may be recovered using 
+<A HREF="jpx_target__acc$ferences.html">jpx_target::access_data_references</A>.
+</P><P>
+ The purpose of the fragment is to define the actual
+JPEG2000 codestream described by this object in terms
+of a collection of references to byte ranges in (usually)
+external files/URL's. The concatenated list of fragments
+represents the complete codestream. If you call this
+function, or add a fragment directly to the 
+<A HREF="jpx$_list.html">jpx_fragment_list</A> object returned by 
+<A HREF="jpx$arget__acc$ment_list.html">access_fragment_list</A>, the codestream will be recorded using a fragment
+table box rather than a contiguous codestream box.
+For this reason, you must not invoke 
+<A HREF="jpx$arget__open_stream.html">open_stream</A> or 
+<A HREF="jpx$arget__acc$ss_stream.html">access_stream</A>. Instead, before closing the containing 
+<A HREF="jpx_target.html">jpx_target</A> object, you should be sure to call 
+<A HREF="jpx$arget__wri$ent_table.html">write_fragment_table</A>.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="url">url</A> [<B>const char *</B>]</H4><DIV CLASS="indented-text">
+<P>
+If NULL or an empty string, the fragment refers to
+a location in the current file &mdash; the main JPX
+file. In practice, this is unlikely to be possible
+unless you have written your own media data (mdat)
+box and buried the codestream inside it &mdash; a trick
+used commonly by Motion JPEG2000 files.
+</P>
+</DIV>
+<H4><A NAME="offset">offset</A> [<B>kdu_long</B>]</H4><DIV CLASS="indented-text">
+</DIV>
+<H4><A NAME="length">length</A> [<B>kdu_long</B>]</H4><DIV CLASS="indented-text">
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="jpx$arget__acc$ment_list.html"> prev </A>||<A HREF="jpx$arget__wri$ent_table.html"> next </A>|</P>
+</BODY>
+</HTML>

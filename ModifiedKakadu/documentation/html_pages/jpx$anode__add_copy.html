@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (jpx_metanode::add_copy) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="jpx$anode__cha$o_delayed.html"> prev </A>||<A HREF="jpx$anode__delete_node.html"> next </A>|</P>
+<H1><A NAME="ToP">jpx_metanode::add_copy</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Jpx_metanode.Add_copy</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Cjpx_metanode.add_copy</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Cjpx_metanode.add_copy</EM></H3></DIR></DIR>
+<P CLASS="function-text"><A HREF ="jpx$anode.html">jpx_metanode</A> add_copy(
+<A HREF ="jpx$anode.html">jpx_metanode</A>&nbsp;src,
+<B>bool</B>&nbsp;recursive)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native Jpx_metanode Add_copy(
+Jpx_metanode&nbsp;src,
+boolean&nbsp;recursive)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public Jpx_metanode add_copy(
+Jpx_metanode&nbsp;src,
+bool&nbsp;recursive)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function add_copy(
+ByVal&nbsp;src&nbsp;As&nbsp;Jpx_metanode,
+ByVal&nbsp;recursive&nbsp;As&nbsp;Boolean) &nbsp;As&nbsp;Jpx_metanode</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+c$essed_io+jpx+h.html">"../apps/compressed_io/jpx.h"</A>]</P><P><A HREF="jpx$anode.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Use this function to add a descendant to the present
+node, assigning the descendant to represent a box whose
+type and contents are obtained by copying those of
+the 
+<A HREF="jpx$anode__add_copy.html#src">src</A> object.
+</P><P>
+ Note carefully that 
+<A HREF="jpx$anode__add_copy.html#src">src</A> may be an interface to a different metadata tree.
+Its contents might not be explicitly copied here; we
+might only preserve references. As a result, you must
+make sure that the underlying 
+<A HREF="jp2$y_src.html">jp2_family_src</A> object, from which the contents of 
+<A HREF="jpx$anode__add_copy.html#src">src</A> might have been read, remains open until after the
+present box has been written using 
+<A HREF="jpx_target__wri$metadata.html">jpx_target::write_metadata</A>. However, it is safe to invoke 
+<B>jpx_metanode::delete</B> on the 
+<A HREF="jpx$anode__add_copy.html#src">src</A> object after it has been copied. This operation can
+be particularly useful during editing operations.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="src">src</A> [<A HREF ="jpx$anode.html">jpx_metanode</A>]</H4><DIV CLASS="indented-text">
+</DIV>
+<H4><A NAME="recursive">recursive</A> [<B>bool</B>]</H4><DIV CLASS="indented-text">
+<P>
+If true, the 
+<A HREF="jpx$anode__add_copy.html#src">src</A> node's descendants will be copied recursively. While
+doing so, the function will attempt to parse as many
+of the descendant boxes as possible &mdash; if the
+source is fuelled ultimately by a dynamic cache, the
+descendants of an available node may grow, as more
+data arrives from a remote server.
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="jpx$anode__cha$o_delayed.html"> prev </A>||<A HREF="jpx$anode__delete_node.html"> next </A>|</P>
+</BODY>
+</HTML>

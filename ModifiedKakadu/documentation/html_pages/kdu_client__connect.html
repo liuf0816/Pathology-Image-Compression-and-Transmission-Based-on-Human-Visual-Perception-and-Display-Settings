@@ -1,0 +1,222 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_client::connect) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu_client__ins$anslator.html"> prev </A>||<A HREF="kdu_client__is_active.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_client::connect</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_client.Connect</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_client.connect</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_client.connect</EM></H3></DIR></DIR>
+<P CLASS="function-text">virtual <B>void</B> connect(
+<B>const char *</B>&nbsp;server,
+<B>const char *</B>&nbsp;proxy,
+<B>const char *</B>&nbsp;request,
+<B>const char *</B>&nbsp;channel_transport,
+<B>const char *</B>&nbsp;cache_dir)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native void Connect(
+String&nbsp;server,
+String&nbsp;proxy,
+String&nbsp;request,
+String&nbsp;channel_transport,
+String&nbsp;cache_dir)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public void connect(
+string&nbsp;server,
+string&nbsp;proxy,
+string&nbsp;request,
+string&nbsp;channel_transport,
+string&nbsp;cache_dir)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Sub connect(
+ByVal&nbsp;server&nbsp;As&nbsp;String,
+ByVal&nbsp;proxy&nbsp;As&nbsp;String,
+ByVal&nbsp;request&nbsp;As&nbsp;String,
+ByVal&nbsp;channel_transport&nbsp;As&nbsp;String,
+ByVal&nbsp;cache_dir&nbsp;As&nbsp;String) </EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+c$o+kdu_client+h.html">"../apps/compressed_io/kdu_client.h"</A>]</P><P><A HREF="kdu_client.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Creates a new thread of execution to manage network
+communications and initiate a connection with the appropriate
+server. The function returns immediately, without blocking
+on the success of the connection.
+</P><P>
+ The application may then monitor the value returned
+by 
+<A HREF="kdu_client__is_active.html">is_active</A> and 
+<A HREF="kdu_client__is_alive.html">is_alive</A> to determine when the connection is actually established,
+if at all. The application may also monitor transfer
+statistics using 
+<A HREF="kdu_cache__get$red_bytes.html">kdu_cache::get_transferred_bytes</A> and it may receive notification of network activities
+by supplying a 
+<A HREF="kdu$ifier.html">kdu_client_notifier</A>-derived object to the 
+<A HREF="kdu_client__ins$notifier.html">install_notifier</A> function.
+</P><P>
+ The network management thread will be terminated when
+the 
+<A HREF="kdu_client__close.html">close</A> or 
+<A HREF="kdu_client__disconnect.html">disconnect</A> function is called, when the server disconnects, or
+when a terminal error condition arises, whichever occurs
+first.
+</P><P>
+ It is important to realize that the internal network
+management thread may itself issue an error message
+through 
+<A HREF="kdu_error.html">kdu_error</A>. For this to be robust, the 
+<A HREF="kdu$ssage.html">kdu_message</A>-derived object supplied to 
+<A HREF="globals__kdu$mize_errors.html">kdu_customize_errors</A> must throw an exception when it receives the call
+to 
+<A HREF="kdu$ssage__flush.html">kdu_message::flush</A> with 
+<B>end_of_message</B> true. The implementation of the 
+<A HREF="kdu$ssage.html">kdu_message</A>-derived object should be thread-safe and should be
+able to successfully deliver its messages, regardless
+of the thread from which it is invoked. These conditions
+should not be onerous on application developers.
+</P><P>
+ The present function may itself issue a terminal error
+message through 
+<A HREF="kdu_error.html">kdu_error</A> if there is something wrong with any of the supplied
+arguments. For this reason, interactive applications
+should generally provide try/catch protection when
+calling this function.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="server">server</A> [<B>const char *</B>]</H4><DIV CLASS="indented-text">
+<P>
+Holds the host name or IP address of the server to
+be contacted. The 
+<A HREF="kdu_client__connect.html#server">server</A> string may contain an optional port number suffix,
+in which case it has the form &lt;host name or IP address&gt;:&lt;port&gt;.
+The default HTTP port number of 80 is otherwise assumed.
+Communication with this machine proceeds over HTTP,
+and may involve intermediate proxies, as described
+in connection with the 
+<A HREF="kdu_client__connect.html#proxy">proxy</A> argument.
+</P>
+</DIV>
+<H4><A NAME="proxy">proxy</A> [<B>const char *</B>]</H4><DIV CLASS="indented-text">
+<P>
+Same syntax as 
+<A HREF="kdu_client__connect.html#server">server</A>, but gives the host (and optionally the port number)
+of the machine with which the initial TCP connection
+should be established. This may either be the server
+itself, or an HTTP proxy server. May be NULL, or point
+to an empty string, if no proxy is to be used.
+</P>
+</DIV>
+<H4><A NAME="request">request</A> [<B>const char *</B>]</H4><DIV CLASS="indented-text">
+<P>
+This pointer may not be NULL or reference an empty
+string. The string has one of the following forms:
+a) &lt;resource&gt;; or b) &lt;resource&gt;?&lt;query&gt;.
+In the former case, &lt;resource&gt; is simply the
+name of the target file on the server. In the latter
+case, the target file name may be held in the &lt;resource&gt;
+component, or as a query field of the form "target=&lt;name&gt;",
+in which case the &lt;resource&gt; string may refer
+to a CGI script or some other identifier having meaning
+to the server. In any event, the complete 
+<A HREF="kdu_client__connect.html#request">request</A> string may consist only of URI-legal characters and,
+in particular, may contain no white space characters.
+If necessary, non-conforming characters should be hex-hex
+encoded, as described in RFC2396 (Uniform Resource
+Identifiers (URI): Generic Syntax).
+</P><P>
+ The &lt;query&gt; string may contain multiple fields,
+each of the form &lt;name&gt;=&lt;value&gt;, separated
+by the usual "&" character. If a &lt;query&gt; string
+contains anything other than the "target" or "subtarget"
+fields, it is interpreted as a one-time request. In
+this case, the request will be issued as-is to the
+server, and once the server's response is fully received,
+the connection will be closed. This type of request
+might be embedded in HTML documents as a simple URL.
+In this mode, any calls to 
+<A HREF="kdu_client__post_window.html">post_window</A> will be ignored, since the application is not permitted
+to interactively control the communications. Also,
+in this mode, the 
+<A HREF="kdu_client__connect.html#channel_transport">channel_transport</A> argument is ignored and a session-less transaction
+is used.
+</P>
+</DIV>
+<H4><A NAME="channel_transport">channel_transport</A> [<B>const char *</B>]</H4><DIV CLASS="indented-text">
+<P>
+If NULL or a pointer to an empty string or the string
+"none", no attempt will be made to establish a JPIP
+channel. In this case, no attempt will be made to establish
+a stateful communication session; each request is delivered
+to the server (possibly through the proxy) in a self-contained
+manner, with all relevant cache contents identified
+using appropriate JPIP-defined header lines. When used
+interactively, (nothing other than "target" or "subtarget"
+query fields in the 
+<A HREF="kdu_client__connect.html#request">request</A> string), this mode may involve somewhat lengthy requests,
+and may cause the server to go to quite a bit of additional
+work, re-creating the context for each and every request.
+</P><P>
+ If 
+<A HREF="kdu_client__connect.html#channel_transport">channel_transport</A> holds the string "http" and the 
+<A HREF="kdu_client__connect.html#request">request</A> string does not contain any query request fields other
+than "target" or "subtarget", the client's first request
+asks for a channel with HTTP as the transport. If the
+server refuses to grant a channel, communication will
+continue as if the 
+<A HREF="kdu_client__connect.html#channel_transport">channel_transport</A> argument had been NULL.
+</P><P>
+ If 
+<A HREF="kdu_client__connect.html#channel_transport">channel_transport</A> holds the string "http-tcp", the behaviour is the
+same as if it were "http", except that a second TCP
+channel is established for the return data. This transport
+variant is somewhat more efficient for both client
+and server, but requires an additional TCP channel
+and cannot be used from within organizations which
+mandate that all external communication proceed through
+HTTP proxies. If the server does not support the "http-tcp"
+transport, it may fall back to an HTTP transported
+channel. This is because the client's request to the
+server includes a request field of the form "cnew=http-tcp,http",
+giving the server both options.
+</P><P>
+ It is worth noting that wherever a channel is requested,
+the server may respond with the address of a different
+host to be used in all future requests.
+</P>
+</DIV>
+<H4><A NAME="cache_dir">cache_dir</A> [<B>const char *</B>]</H4><DIV CLASS="indented-text">
+<P>
+If non-NULL, this argument provides the path name for
+a directory in which cached data may be saved at the
+end of an interactive communication session. The directory
+is also searched at the beginning of an interactive
+session, to see if information is already available
+for the image in question. If the argument is NULL,
+or points to an empty string, the cache contents will
+not be saved and no previously cached information may
+be re-used here. Files written to or read from the
+cache directory have the ".kjc" suffix, which stands
+for (Kakadu JPIP Cache). These files commence with
+some details which may be used to re-establish connection
+with the server, if necessary (not currently implemented)
+followed by the cached data itself, stored as a concatenated
+list of data-bins. The format of these files is private
+to the current implementation and subject to change
+in subsequent releases of the Kakadu software, although
+the files are at least guaranteed to have an initial
+header which can be used for version-validation purposes.
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu_client__ins$anslator.html"> prev </A>||<A HREF="kdu_client__is_active.html"> next </A>|</P>
+</BODY>
+</HTML>

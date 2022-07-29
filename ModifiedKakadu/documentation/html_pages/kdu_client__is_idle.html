@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_client::is_idle) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="kdu_client__is_alive.html"> prev </A>||<A HREF="kdu_client__disconnect.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_client::is_idle</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_client.Is_idle</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_client.is_idle</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_client.is_idle</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>bool</B> is_idle(
+)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native boolean Is_idle(
+)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public bool is_idle(
+)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function is_idle(
+) &nbsp;As&nbsp;Boolean</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+c$o+kdu_client+h.html">"../apps/compressed_io/kdu_client.h"</A>]</P><P><A HREF="kdu_client.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Returns true if the server has finished responding
+to all pending window requests, and the network management
+thread is still alive. The state of this function reverts
+to false immediately after any call to 
+<A HREF="kdu_client__post_window.html">post_window</A> which will cause a request to be sent to the server.
+Any request for a window which is known to have been
+completely serviced already, however, will not result
+in a message being sent to the server, so in that case
+<A HREF="kdu_client__is_idle.html">is_idle</A> will remain true if it was previously true.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="kdu_client__is_alive.html"> prev </A>||<A HREF="kdu_client__disconnect.html"> next </A>|</P>
+</BODY>
+</HTML>

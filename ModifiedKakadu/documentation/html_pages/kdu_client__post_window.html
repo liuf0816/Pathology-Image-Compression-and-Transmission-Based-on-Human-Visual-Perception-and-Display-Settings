@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_client::post_window) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu_client__get_status.html"> prev </A>||<A HREF="kdu_client__get$progress.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_client::post_window</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_client.Post_window</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_client.post_window</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_client.post_window</EM></H3></DIR></DIR>
+<P CLASS="function-text">virtual <B>bool</B> post_window(
+<A HREF ="kdu_window.html">kdu_window</A>&nbsp;*&nbsp;window)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native boolean Post_window(
+Kdu_window&nbsp;window)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public bool post_window(
+Kdu_window&nbsp;window)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function post_window(
+ByVal&nbsp;window&nbsp;As&nbsp;Kdu_window) &nbsp;As&nbsp;Boolean</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+c$o+kdu_client+h.html">"../apps/compressed_io/kdu_client.h"</A>]</P><P><A HREF="kdu_client.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Requests that a message be delivered to the server
+identifying a change in the user's window of interest
+into the compressed image. The message may not be delivered
+immediately; it may not even be delivered at all, if
+the function is called again specifying a different
+access window, before the function has a chance to
+deliver a request for the current window to the server.
+</P><P>
+ It is important to note that the server may not be
+able to serve some windows in the exact form they are
+requested. When this happens, the server's response
+will indicate modified attributes of the window which
+it is able to service. The client may learn about the
+actual window for which data is being served by calling
+<A HREF="kdu_client__get$progress.html">get_window_in_progress</A>.
+</P><P>
+ This function may be called at any time after 
+<A HREF="kdu_client__connect.html">connect</A>, without necessarily waiting for 
+<B>open</B> to succeed. In fact, this can be useful, since it
+allows an initial window to be requested while the
+initial transfer of mandatory headers is in progress,
+or even before it starts, thereby avoiding the latency
+associated with extra round-trip-times.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ReturnS">Return Value</A></H2><DIV CLASS="indented-text">
+<P>
+False if the specified window is known to have been
+fully served already, so that it will not result in
+any request being delivered to the server. If the function
+returns true, the window is held until a suitable request
+message can be sent to the server. This message will
+eventually be sent, unless a new call to 
+<A HREF="kdu_client__post_window.html">post_window</A> arrives in the mean time.
+</P>
+</DIV>
+<H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="window">window</A> [<A HREF ="kdu_window.html">kdu_window</A>&nbsp;*]</H4><DIV CLASS="indented-text">
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu_client__get_status.html"> prev </A>||<A HREF="kdu_client__get$progress.html"> next </A>|</P>
+</BODY>
+</HTML>

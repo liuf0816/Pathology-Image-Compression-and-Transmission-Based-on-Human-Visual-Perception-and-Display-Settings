@@ -1,0 +1,2 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (.\..\..\..\v6_generated\server\debug\) contains files shared from another project (kdu_server.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+cl : 命令行 error D8016: “/ZI”和“/Gy-”命令行选项不兼容

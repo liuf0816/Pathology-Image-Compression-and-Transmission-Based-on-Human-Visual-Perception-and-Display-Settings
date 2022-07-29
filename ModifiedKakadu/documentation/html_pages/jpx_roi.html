@@ -1,0 +1,84 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (jpx_roi) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#FFF491">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#FuncS"> functions </A>||<A HREF="#VarS"> variables </A>|</P>
+<H1><A NAME="ToP">jpx_roi [struct]</A></H1>
+<DIR><DIR><H3><U>Java:</U> class Jpx_roi</H3></DIR></DIR>
+<DIR><DIR><H3><U>C#:</U> class Cjpx_roi</H3></DIR></DIR>
+<DIR><DIR><H3><U>VB:</U> class Cjpx_roi</H3></DIR></DIR>
+
+<P>[Declared in <A HREF="++++apps+c$essed_io+jpx+h.html">"../apps/compressed_io/jpx.h"</A>]</P><P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+This structure manages a single region of interest,
+as it appears within a JPX ROI Descriptions (
+<B>roid</B>) box. It helps keep information about the image region
+together with additional attributes of the region.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="FuncS">Public Functions</A></H2><DIV CLASS="indented-text">
+<P><A HREF="jpx_roi__jpx_roi.html">jpx_roi</A> {<U>Java:</U> Jpx_roi}
+ {<U>C#:</U> Cjpx_roi}
+ {<U>VB:</U> New}
+</P>
+</DIV>
+<H2><A NAME="VarS">Public Variables</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="region">region</A> [<A HREF ="kdu_dims.html">kdu_dims</A>]</H4><DIV CLASS="indented-text">
+<P>
+For rectangular regions (
+<A HREF="jpx_roi.html#is_elliptical">is_elliptical</A>=false) this member holds the actual region of interest.
+Otherwise, it describes the bounding box of an elliptical
+region of interest whose major and minor axes are aligned
+with the horizontal and vertical cardinal axes.
+</P><P>
+ Note that regions are defined only for code-streams,
+not any other image entities which may be found within
+a JPX file such as compositing layers or a composited
+image.
+</P><P>
+ Note also that the region is expressed relative to
+the upper left hand corner of the image as it appears
+on the relevant code-stream's high resolution grid.
+</P>
+</DIV>
+<H4><A NAME="is_elliptical">is_elliptical</A> [<B>bool</B>]</H4><DIV CLASS="indented-text">
+<P>
+If true, the 
+<A HREF="jpx_roi.html#region">region</A> member identifes the bounding box of an elliptical
+region whose maxor and minor axes correspond to the
+width and height (or vice-versa) of that bounding box.
+</P>
+</DIV>
+<H4><A NAME="is_encoded">is_encoded</A> [<B>bool</B>]</H4><DIV CLASS="indented-text">
+<P>
+If true, the region described here has actually been
+encoded as a prioritized ROI within the code-streams
+with which it is associated. JPEG2000 Part 1 code-streams
+may encode ROI's only using the MAXSHIFT method, also
+known as the implicit method. JPEG2000 Part 2 code-streams
+may use explicit ROI coding. If this member is false,
+the ROI is a semantic entity, described only at the
+level of the file format.
+</P>
+</DIV>
+<H4><A NAME="coding_priority">coding_priority</A> [<B>kdu_byte</B>]</H4><DIV CLASS="indented-text">
+<P>
+Indicates the coding priority for use in transcoding
+images which contain code-stream ROI's &mdash; i.e.,
+ROI's for which 
+<A HREF="jpx_roi.html#is_encoded">is_encoded</A> is true.
+</P>
+</DIV>
+</DIV>
+<P ALIGN="CENTER"><HR></P>
+<P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#FuncS"> functions </A>||<A HREF="#VarS"> variables </A>|</P>
+</BODY>
+</HTML>

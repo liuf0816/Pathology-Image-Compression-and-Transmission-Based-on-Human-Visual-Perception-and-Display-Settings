@@ -1,0 +1,165 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_client) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#FFF491">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#FuncS"> functions </A>|</P>
+<H1><A NAME="ToP">kdu_client</A></H1>
+<DIR><DIR><H3><U>Java:</U> class Kdu_client</H3></DIR></DIR>
+<DIR><DIR><H3><U>C#:</U> class Ckdu_client</H3></DIR></DIR>
+<DIR><DIR><H3><U>VB:</U> class Ckdu_client</H3></DIR></DIR>
+<DIR><P>Derives from <A HREF ="kdu_cache.html">kdu_cache</A></P>
+<DIR><P>Derives from <A HREF ="kdu$ource.html">kdu_compressed_source</A></P>
+</DIR></DIR>
+<P>[Declared in <A HREF="++++apps+c$o+kdu_client+h.html">"../apps/compressed_io/kdu_client.h"</A>]</P><P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Implements a full JPIP network client, building on
+the services offered by 
+<A HREF="kdu_cache.html">kdu_cache</A>. The following is a brief summary of the way in which
+this object is expected to be used:
+</P><UL><LI>
+The client application uses the 
+<A HREF="kdu_client__connect.html">connect</A> function to start a new thread of execution which
+will communicate with the remote server. The cache
+may be used immediately, if desired, although its contents
+will remain empty until the server connection has been
+established.
+</LI><LI>
+The client application determines whether or not the
+remote object is a JP2-family file, by invoking 
+<A HREF="kdu_cache__get$in_length.html">kdu_cache::get_databin_length</A> on meta data-bin 0, using its 
+<B>is_complete</B> member to determine whether a returned length of 0
+means that meta data-bin 0 is empty, or simply that
+nothing is yet known about the data-bin, based on communication
+with the server so far (the server might not even have
+been connected yet).
+</LI><LI>
+If the 
+<A HREF="kdu_cache__get$in_length.html">kdu_cache::get_databin_length</A> function returns a length of 0 for meta data-bin 0,
+and the data-bin is complete, the image corresponds
+to a single raw JPEG2000 code-stream and the client
+application must wait until the main header data-bin
+is complete, calling 
+<A HREF="kdu_cache__get$in_length.html">kdu_cache::get_databin_length</A> again (this time querying the state of the code-stream
+main header data-bin) to determine when this has occurred.
+At that time, the present object may be passed directly
+to 
+<A HREF="kdu$tream__create__1.html">kdu_codestream::create</A>.
+</LI><LI>
+If the 
+<A HREF="kdu_cache__get$in_length.html">kdu_cache::get_databin_length</A> function identifies meta data-bin 0 as non-empty,
+the image source is a JP2-family file. The client application
+uses the present object to open a 
+<A HREF="jp2$y_src.html">jp2_family_src</A> object, which is then used to open a 
+<A HREF="jp2_source.html">jp2_source</A> object (or any other suitable file format parser derived
+from 
+<A HREF="jp2$t_box.html">jp2_input_box</A>). The application then calls 
+<A HREF="jp2_source__read_header.html">jp2_source::read_header</A> until it returns true, meaning that the cache has
+sufficient information to read both the JP2 file header
+and the main header of the embedded JPEG2000 code-stream.
+At that point, the 
+<A HREF="jp2_source.html">jp2_source</A> object is passed to 
+<A HREF="kdu$tream__create__1.html">kdu_codestream::create</A>.
+</LI><LI>
+At any point, the client application may use the 
+<A HREF="kdu_client__disconnect.html">disconnect</A> function to disconnect from the server, while continuing
+to use the cache, or the 
+<A HREF="kdu_client__close.html">close</A> function to both disconnect from the server (if still
+connected) and discard the contents of the cache.
+</LI></UL><P>
+ The 
+<A HREF="kdu_client.html">kdu_client</A> object also provides a number of status functions
+for monitoring the state of the network connection.
+These are
+</P><UL><LI>
+<A HREF="kdu_client__is_active.html">is_active</A> &mdash; returns true from the point at which 
+<A HREF="kdu_client__connect.html">connect</A> is called, remaining true until 
+<A HREF="kdu_client__close.html">close</A> is called, even if the connection with the server
+has been dropped, or was never completed.
+</LI><LI>
+<A HREF="kdu_client__is_alive.html">is_alive</A> &mdash; returns true from the point at which 
+<A HREF="kdu_client__connect.html">connect</A> is called, remaining true until the network management
+thread terminates. This happens if 
+<A HREF="kdu_client__close.html">close</A> is called, if the network connection is explicitly
+terminated by a call to 
+<A HREF="kdu_client__disconnect.html">disconnect</A>, if the server terminates the connection, or if the
+original connection attempt failed to complete.
+</LI><LI>
+<A HREF="kdu_client__is_idle.html">is_idle</A> &mdash; returns true if the server has finished responding
+to all pending requests, but the connection is still
+alive.
+</LI></UL>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="FuncS">Public Functions</A></H2><DIV CLASS="indented-text">
+<P><A HREF="kdu_client__kdu_client.html">kdu_client</A> {<U>Java:</U> Kdu_client}
+ {<U>C#:</U> Ckdu_client}
+ {<U>VB:</U> New}
+</P>
+<P><A HREF="kdu_client__~kdu_client.html">~kdu_client</A> [virtual] {<U>Java:</U> Native_destroy}
+ {<U>C#:</U> Dispose}
+ {<U>VB:</U> Dispose}
+</P>
+<P><A HREF="kdu_client__ins$anslator.html">install_context_translator</A> {<U>Java:</U> Install_context_translator}
+ {<U>C#:</U> install_context_translator}
+ {<U>VB:</U> install_context_translator}
+</P>
+<P><A HREF="kdu_client__connect.html">connect</A> [virtual] {<U>Java:</U> Connect}
+ {<U>C#:</U> connect}
+ {<U>VB:</U> connect}
+</P>
+<P><A HREF="kdu_client__is_active.html">is_active</A> {<U>Java:</U> Is_active}
+ {<U>C#:</U> is_active}
+ {<U>VB:</U> is_active}
+</P>
+<P><A HREF="kdu_client__is_$_request.html">is_one_time_request</A> {<U>Java:</U> Is_one_time_request}
+ {<U>C#:</U> is_one_time_request}
+ {<U>VB:</U> is_one_time_request}
+</P>
+<P><A HREF="kdu_client__is_alive.html">is_alive</A> {<U>Java:</U> Is_alive}
+ {<U>C#:</U> is_alive}
+ {<U>VB:</U> is_alive}
+</P>
+<P><A HREF="kdu_client__is_idle.html">is_idle</A> {<U>Java:</U> Is_idle}
+ {<U>C#:</U> is_idle}
+ {<U>VB:</U> is_idle}
+</P>
+<P><A HREF="kdu_client__disconnect.html">disconnect</A> [virtual] {<U>Java:</U> Disconnect}
+ {<U>C#:</U> disconnect}
+ {<U>VB:</U> disconnect}
+</P>
+<P><A HREF="kdu_client__close.html">close</A> [virtual] {<U>Java:</U> Close}
+ {<U>C#:</U> close}
+ {<U>VB:</U> close}
+</P>
+<P><A HREF="kdu_client__ins$notifier.html">install_notifier</A> {<U>Java:</U> Install_notifier}
+ {<U>C#:</U> install_notifier}
+ {<U>VB:</U> install_notifier}
+</P>
+<P><A HREF="kdu_client__get_status.html">get_status</A> [virtual] {<U>Java:</U> Get_status}
+ {<U>C#:</U> get_status}
+ {<U>VB:</U> get_status}
+</P>
+<P><A HREF="kdu_client__post_window.html">post_window</A> [virtual] {<U>Java:</U> Post_window}
+ {<U>C#:</U> post_window}
+ {<U>VB:</U> post_window}
+</P>
+<P><A HREF="kdu_client__get$progress.html">get_window_in_progress</A> [virtual] {<U>Java:</U> Get_window_in_progress}
+ {<U>C#:</U> get_window_in_progress}
+ {<U>VB:</U> get_window_in_progress}
+</P>
+<P><A HREF="kdu_client__get$ed_bytes.html">get_received_bytes</A> {<U>Java:</U> Get_received_bytes}
+ {<U>C#:</U> get_received_bytes}
+ {<U>VB:</U> get_received_bytes}
+</P>
+</DIV>
+<P ALIGN="CENTER"><HR></P>
+<P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#FuncS"> functions </A>|</P>
+</BODY>
+</HTML>

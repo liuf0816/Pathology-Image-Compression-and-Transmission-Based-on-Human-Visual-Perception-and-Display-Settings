@@ -1,0 +1,184 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_compositor::get_codestream_info) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__acc$odestream.html"> prev </A>||<A HREF="kdu$sitor__get$m_packets.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_region_compositor::get_codestream_info</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_compositor.Get_codestream_info</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_compositor.get_codestream_info</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_compositor.get_codestream_info</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>bool</B> get_codestream_info(
+<B>kdrc_stream</B>&nbsp;*&nbsp;stream_ref,
+<B>int</B>&nbsp;&amp;&nbsp;codestream_idx,
+<B>int</B>&nbsp;&amp;&nbsp;compositing_layer_idx,
+<B>int</B>&nbsp;*&nbsp;components_in_use=NULL,
+<B>int</B>&nbsp;*&nbsp;principle_component_idx=NULL,
+<B>float</B>&nbsp;*&nbsp;principle_component_scale_x=NULL,
+<B>float</B>&nbsp;*&nbsp;principle_component_scale_y=NULL)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native boolean Get_codestream_info(
+long&nbsp;stream_ref,
+int[]&nbsp;codestream_idx,
+int[]&nbsp;compositing_layer_idx,
+int[]&nbsp;components_in_use,
+int[]&nbsp;principle_component_idx,
+float[]&nbsp;principle_component_scale_x,
+float[]&nbsp;principle_component_scale_y)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public bool get_codestream_info(
+IntPtr,
+ref&nbsp;int&nbsp;codestream_idx,
+ref&nbsp;int&nbsp;compositing_layer_idx,
+int[]&nbsp;components_in_use,
+int[]&nbsp;principle_component_idx,
+float[]&nbsp;principle_component_scale_x,
+float[]&nbsp;principle_component_scale_y)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function get_codestream_info(
+ByVal&nbsp;As&nbsp;IntPtr,
+ByRef&nbsp;codestream_idx&nbsp;As&nbsp;Integer,
+ByRef&nbsp;compositing_layer_idx&nbsp;As&nbsp;Integer,
+ByVal&nbsp;components_in_use()&nbsp;As&nbsp;Integer,
+ByVal&nbsp;principle_component_idx()&nbsp;As&nbsp;Integer,
+ByVal&nbsp;principle_component_scale_x()&nbsp;As&nbsp;Single,
+ByVal&nbsp;principle_component_scale_y()&nbsp;As&nbsp;Single) &nbsp;As&nbsp;Boolean</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$n_compositor+h.html">"../apps/support/kdu_region_compositor.h"</A>]</P><P><A HREF="kdu$sitor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Use this function with the 
+<B>kdrc_stream</B> pointer returned by a previous call to 
+<A HREF="kdu$sitor__get$odestream.html">get_next_codestream</A> or 
+<A HREF="kdu$sitor__get$1odestream.html">get_next_visible_codestream</A>. It returns information concerning the associated
+layer codestream. For a discussion of "layer codestreams",
+see the 
+<A HREF="kdu$sitor__get$odestream.html">get_next_codestream</A> function.
+</P><P>
+ Note that the 
+<B>kdrc_stream</B> pointers returned by 
+<A HREF="kdu$sitor__get$odestream.html">get_next_codestream</A> and 
+<A HREF="kdu$sitor__get$1odestream.html">get_next_visible_codestream</A> must be considered invalid and not passed to the present
+function, if the composition has since been modified
+by a call to any of 
+<A HREF="kdu$sitor__set_frame.html">set_frame</A>, 
+<A HREF="kdu$sitor__add$ing_layer.html">add_compositing_layer</A>, 
+<A HREF="kdu$sitor__rem$ing_layer.html">remove_compositing_layer</A>, 
+<A HREF="kdu$sitor__set$component.html">set_single_component</A> or 
+<A HREF="kdu$sitor__cul$ve_layers.html">cull_inactive_layers</A>.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ReturnS">Return Value</A></H2><DIV CLASS="indented-text">
+<P>
+True if the indicated layer codestream is on the internal
+active list; for a discussion of the active list, see
+the comments appearing with 
+<A HREF="kdu$sitor__get$odestream.html">get_next_codestream</A>.
+</P>
+</DIV>
+<H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="stream_ref">stream_ref</A> [<B>kdrc_stream</B>&nbsp;*]</H4><DIV CLASS="indented-text">
+<P>
+Pointer returned by a previous call to 
+<A HREF="kdu$sitor__get$odestream.html">get_next_codestream</A> or 
+<A HREF="kdu$sitor__get$1odestream.html">get_next_visible_codestream</A>.
+</P>
+</DIV>
+<H4><A NAME="codestream_idx">codestream_idx</A> [<B>int</B>&nbsp;&amp;]</H4><DIV CLASS="indented-text">
+<P>
+Used to return the absolute index of the JPEG2000 code-stream
+associated with this layer codestream, as it appears
+within its data source.
+</P>
+</DIV>
+<H4><A NAME="compositing_layer_idx">compositing_layer_idx</A> [<B>int</B>&nbsp;&amp;]</H4><DIV CLASS="indented-text">
+<P>
+Used to return the absolute index of the compositing
+layer associated with this layer codestream, as it
+appears within its data source. If the codestream has
+never been associated with any compositing layer (e.g.,
+only opened as a result of calls to 
+<A HREF="kdu$sitor__set$component.html">set_single_component</A>), this variable is set to -1.
+</P>
+</DIV>
+<H4><A NAME="components_in_use">components_in_use</A> [<B>int</B>&nbsp;*]</H4><DIV CLASS="indented-text">
+<P>
+If non-NULL, this argument must point to an array with
+at least 4 elements. The array's entries are filled
+out with the indices (starting from 0) of the image
+components which are actually being used within this
+code-stream. All four entries of the array are filled
+out, but once all components which are in use have
+been accounted for, remaining entries are set to -1.
+</P><P>
+ Except in the event that the object is in the single
+component mode (see 
+<A HREF="kdu$sitor__set$component.html">set_single_component</A>), the components identified here are "output image
+components", meaning that they are the components produced
+after performing any multi-component transform which
+might be specified at the code-stream level. To understand
+the distinction between output components and codestream
+components (the ones produced by inverse spatial wavelet
+transformation), see the description of the 
+<A HREF="kdu$tream__app$trictions__1.html">kdu_codestream::apply_input_restrictions</A> function. It suffices here to note that the set of
+output components which are being used may be larger
+or smaller than the corresponding set of codestream
+image components. In single component mode, the single
+component identified here will be identical to that
+which was passed to 
+<B>set_single_components</B>.
+</P>
+</DIV>
+<H4><A NAME="principle_component_idx">principle_component_idx</A> [<B>int</B>&nbsp;*]</H4><DIV CLASS="indented-text">
+<P>
+If non-NULL, this argument is used to return the index
+of the image component of this codestream whose dimensions
+form the basis of scaling decisions for rendering purposes.
+If there are multiple components being used, this will
+generally be the component which is used to generate
+the first colour channel supplied to any colour mapping
+process. The interpretation of this component index
+is identical to that of the component indices returned
+via the 
+<A HREF="kdu$sitor__get$ream_info.html#components_in_use">components_in_use</A> argument.
+</P>
+</DIV>
+<H4><A NAME="principle_component_scale_x">principle_component_scale_x</A> [<B>float</B>&nbsp;*]</H4><DIV CLASS="indented-text">
+<P>
+If non-NULL, this argument is used to return the amount
+by which the principle image component is horizontally
+scaled to obtain its contributions to the composited
+result, assuming that 
+<A HREF="kdu$sitor__set_scale.html">set_scale</A> is called with a 
+<B>scale</B> value of 1.0. The actual component scaling factor
+can be deduced by multiplying the returned value by
+the global scaling factor supplied to 
+<A HREF="kdu$sitor__set_scale.html">set_scale</A>. The value returned here does not rely upon a successful
+call to 
+<A HREF="kdu$sitor__set_scale.html">set_scale</A> ever having been made and is independent of any geometric
+transformations requested in a call to 
+<A HREF="kdu$sitor__set_scale.html">set_scale</A>. Thus, if you are really rendering (or intending to
+render) the surface in a transposed fashion, you should
+swap the horizontal and vertical scales returned by
+this function in order to obtain scaling factors which
+are appropriate for your intended rendering orientation.
+</P>
+</DIV>
+<H4><A NAME="principle_component_scale_y">principle_component_scale_y</A> [<B>float</B>&nbsp;*]</H4><DIV CLASS="indented-text">
+<P>
+Same as 
+<A HREF="kdu$sitor__get$ream_info.html#principle_component_scale_x">principle_component_scale_x</A>, but used to return the vertical scaling factor associated
+with the principle image component.
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__acc$odestream.html"> prev </A>||<A HREF="kdu$sitor__get$m_packets.html"> next </A>|</P>
+</BODY>
+</HTML>

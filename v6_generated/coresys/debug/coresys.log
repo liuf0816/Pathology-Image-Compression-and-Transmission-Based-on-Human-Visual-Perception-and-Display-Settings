@@ -1,0 +1,148 @@
+﻿  用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.00.23506 版
+  版权所有(C) Microsoft Corporation。保留所有权利。
+  
+  cl /c /Icommon /Zi /W3 /WX- /Od /Oy- /D _DEBUG /D WIN32 /D _WINDOWS /D _USRDLL /D CORESYS_EXPORTS /D KDU_PENTIUM_MSVC /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo".\..\..\v6_generated\coresys\debug\\" /Fd".\..\..\v6_generated\coresys\debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt coding\block_coding_common.cpp coding\block_decoder.cpp coding\block_encoder.cpp coding\decoder.cpp coding\encoder.cpp coding\mq_decoder.cpp coding\mq_encoder.cpp common\kdu_arch.cpp compressed\blocks.cpp compressed\codestream.cpp compressed\compressed.cpp kernels\kernels.cpp messaging\messaging.cpp parameters\params.cpp roi\roi.cpp threads\kdu_threads.cpp transform\analysis.cpp transform\colour.cpp transform\multi_transform.cpp transform\synthesis.cpp
+  
+  synthesis.cpp
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(514): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(521): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(555): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(561): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+  multi_transform.cpp
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(514): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(521): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(555): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(561): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+  colour.cpp
+e:\study\jpeg2000\visually_lossless_jpeg2000_jpip\modifiedkakadu\coresys\common\kdu_compressed.h(514): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+e:\study\jpeg2000\visually_lossless_jpeg2000_jpip\modifiedkakadu\coresys\common\kdu_compressed.h(521): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+e:\study\jpeg2000\visually_lossless_jpeg2000_jpip\modifiedkakadu\coresys\common\kdu_compressed.h(555): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+e:\study\jpeg2000\visually_lossless_jpeg2000_jpip\modifiedkakadu\coresys\common\kdu_compressed.h(561): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+  analysis.cpp
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(514): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(521): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(555): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(561): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+  kdu_threads.cpp
+  roi.cpp
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(514): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(521): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(555): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(561): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+  params.cpp
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(514): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(521): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(555): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(561): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+  messaging.cpp
+  kernels.cpp
+  compressed.cpp
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(514): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(521): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(555): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(561): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+  codestream.cpp
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(514): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(521): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(555): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(561): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+compressed\codestream.cpp(3263): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(119): note: 参见“strcpy”的声明
+compressed\codestream.cpp(3268): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(255): note: 参见“strncat”的声明
+compressed\codestream.cpp(4938): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+  blocks.cpp
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(514): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(521): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(555): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(561): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+  kdu_arch.cpp
+  mq_encoder.cpp
+  mq_decoder.cpp
+  encoder.cpp
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(514): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(521): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(555): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(561): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+  decoder.cpp
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(514): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(521): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(555): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\common\kdu_compressed.h(561): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+  block_encoder.cpp
+e:\study\jpeg2000\visually_lossless_jpeg2000_jpip\modifiedkakadu\coresys\common\kdu_compressed.h(514): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+e:\study\jpeg2000\visually_lossless_jpeg2000_jpip\modifiedkakadu\coresys\common\kdu_compressed.h(521): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+e:\study\jpeg2000\visually_lossless_jpeg2000_jpip\modifiedkakadu\coresys\common\kdu_compressed.h(555): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+e:\study\jpeg2000\visually_lossless_jpeg2000_jpip\modifiedkakadu\coresys\common\kdu_compressed.h(561): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+coding\block_encoder.cpp(147): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+coding\block_encoder.cpp(291): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+coding\block_encoder.cpp(1957): warning C4838: 从“double”转换到“float”需要收缩转换
+coding\block_encoder.cpp(1957): warning C4305: “初始化”: 从“double”到“float”截断
+coding\block_encoder.cpp(2165): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+coding\block_encoder.cpp(2166): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+coding\block_encoder.cpp(2168): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+coding\block_encoder.cpp(1934): warning C4101: “embbed_delta”: 未引用的局部变量
+  block_decoder.cpp
+e:\study\jpeg2000\visually_lossless_jpeg2000_jpip\modifiedkakadu\coresys\common\kdu_compressed.h(514): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+e:\study\jpeg2000\visually_lossless_jpeg2000_jpip\modifiedkakadu\coresys\common\kdu_compressed.h(521): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+e:\study\jpeg2000\visually_lossless_jpeg2000_jpip\modifiedkakadu\coresys\common\kdu_compressed.h(555): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+e:\study\jpeg2000\visually_lossless_jpeg2000_jpip\modifiedkakadu\coresys\common\kdu_compressed.h(561): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+  block_coding_common.cpp
+  正在生成代码...
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1189,5): warning MSB8012: TargetPath(E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\.\..\..\v6_generated\coresys\debug\coresys.dll) does not match the Linker's OutputFile property value (E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\bin\kdu_v61D.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1191,5): warning MSB8012: TargetName(coresys) does not match the Linker's OutputFile property value (kdu_v61D). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+    正在创建库 ..\..\lib\kdu_v61D.lib 和对象 ..\..\lib\kdu_v61D.exp
+  coresys.vcxproj -> E:\study\JPEG2000\visually_lossless_JPEG2000_jpip\ModifiedKakadu\coresys\.\..\..\v6_generated\coresys\debug\coresys.dll

@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_compositor::find_point) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__hal$rocessing.html"> prev </A>||<A HREF="kdu$sitor__map_region.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_region_compositor::find_point</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_compositor.Find_point</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_compositor.find_point</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_compositor.find_point</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>bool</B> find_point(
+<A HREF ="kdu_coords.html">kdu_coords</A>&nbsp;point,
+<B>int</B>&nbsp;&amp;&nbsp;layer_idx,
+<B>int</B>&nbsp;&amp;&nbsp;codestream_idx)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native boolean Find_point(
+Kdu_coords&nbsp;point,
+int[]&nbsp;layer_idx,
+int[]&nbsp;codestream_idx)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public bool find_point(
+Kdu_coords&nbsp;point,
+ref&nbsp;int&nbsp;layer_idx,
+ref&nbsp;int&nbsp;codestream_idx)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function find_point(
+ByVal&nbsp;point&nbsp;As&nbsp;Kdu_coords,
+ByRef&nbsp;layer_idx&nbsp;As&nbsp;Integer,
+ByRef&nbsp;codestream_idx&nbsp;As&nbsp;Integer) &nbsp;As&nbsp;Boolean</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$n_compositor+h.html">"../apps/support/kdu_region_compositor.h"</A>]</P><P><A HREF="kdu$sitor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+This function searches through all compositing layers
+which are involved in the current presentation to find
+the top-most compositing layer in which 
+<A HREF="kdu$sitor__find_point.html#point">point</A> resides. If one exists, the function returns true,
+and uses 
+<A HREF="kdu$sitor__find_point.html#layer_idx">layer_idx</A> and 
+<A HREF="kdu$sitor__find_point.html#codestream_idx">codestream_idx</A> to return information about the matching compositing
+layer and its primary codestream. Otherwise, the function
+returns false.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="point">point</A> [<A HREF ="kdu_coords.html">kdu_coords</A>]</H4><DIV CLASS="indented-text">
+<P>
+Location of a point on the compositing grid, expressed
+using the same coordinate system as that associated
+with 
+<A HREF="kdu$sitor__set$r_surface.html">set_buffer_surface</A>.
+</P>
+</DIV>
+<H4><A NAME="layer_idx">layer_idx</A> [<B>int</B>&nbsp;&amp;]</H4><DIV CLASS="indented-text">
+<P>
+Used to return the zero-based index of the top-most
+compositing layer which contributes to imagery at location
+<A HREF="kdu$sitor__find_point.html#point">point</A>. If the composited image consists only of a single
+codestream, the value of this argument is set to -1,
+while the value of 
+<A HREF="kdu$sitor__find_point.html#codestream_idx">codestream_idx</A> is set to a non-trivial value. The value of this argument
+is not altered if the function returns false.
+</P>
+</DIV>
+<H4><A NAME="codestream_idx">codestream_idx</A> [<B>int</B>&nbsp;&amp;]</H4><DIV CLASS="indented-text">
+<P>
+Used to return the zero-based index of the primary
+codestream which contributes to imagery at 
+<A HREF="kdu$sitor__find_point.html#point">point</A>. The value of this argument is not altered if the
+function returns false.
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__hal$rocessing.html"> prev </A>||<A HREF="kdu$sitor__map_region.html"> next </A>|</P>
+</BODY>
+</HTML>

@@ -1,0 +1,113 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_compositor::configure_overlays) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__get$m_packets.html"> prev </A>||<A HREF="kdu$sitor__upd$_overlays.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_region_compositor::configure_overlays</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_compositor.Configure_overlays</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_compositor.configure_overlays</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_compositor.configure_overlays</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>void</B> configure_overlays(
+<B>bool</B>&nbsp;enable,
+<B>int</B>&nbsp;min_display_size,
+<B>int</B>&nbsp;painting_param)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native void Configure_overlays(
+boolean&nbsp;enable,
+int&nbsp;min_display_size,
+int&nbsp;painting_param)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public void configure_overlays(
+bool&nbsp;enable,
+int&nbsp;min_display_size,
+int&nbsp;painting_param)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Sub configure_overlays(
+ByVal&nbsp;enable&nbsp;As&nbsp;Boolean,
+ByVal&nbsp;min_display_size&nbsp;As&nbsp;Integer,
+ByVal&nbsp;painting_param&nbsp;As&nbsp;Integer) </EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$n_compositor+h.html">"../apps/support/kdu_region_compositor.h"</A>]</P><P><A HREF="kdu$sitor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Use this function to enable or disable the rendering
+of spatially sensitive metadata as overlay information
+on the compositing surface. When enabled, overlay information
+is generated as required during calls to 
+<A HREF="kdu$sitor__process.html">process</A> and folded into the composited result. If overlay
+surfaces were previously active, disabling the overlay
+functionality may cause the next call to 
+<A HREF="kdu$sitor__process.html">process</A> to return a 
+<B>new_region</B> which is the size of the entire composited image,
+so that your application will know that it needs to
+repaint the whole thing.
+</P><P>
+ Overlays are available only when working with JPX
+data sources.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="enable">enable</A> [<B>bool</B>]</H4><DIV CLASS="indented-text">
+<P>
+If true, overlays are enabled (or remain enabled).
+If false, overlays are disabled and the remaining arguments
+are ignored.
+</P>
+</DIV>
+<H4><A NAME="min_display_size">min_display_size</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+<P>
+Specifies the minimum size occupied by the overlay's
+bounding box on the composited surface, at the prevailing
+scale. If an overlay has a bounding box which will
+be rendered with both dimensions smaller than 
+<A HREF="kdu$sitor__con$_overlays.html#min_display_size">min_display_size</A>, it will not be rendered at all. Setting a modest
+value for this parameter, say in the range 4 to 8,
+helps reduce clutter when viewing an image with a lot
+of metadata. On the other hand, this can make it hard
+to locate tiny regions of significance when zoomed
+out to a small scale.
+</P>
+</DIV>
+<H4><A NAME="painting_param">painting_param</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+<P>
+Parameter passed to the overridable 
+<A HREF="kdu$sitor__cus$t_overlay.html">custom_paint_overlay</A> function, which may be used to control the appearance
+of the overlay imagery. The default implementation
+in 
+<B>paint_overlay</B> uses this parameter as follows:
+</P><UL><LI>
+The least significant 8 bits represent a signed 2's
+complement number, which controls the intensity of
+the overlay pattern. A value of 0 represents "normal"
+intensity; negative values represent reduced intensity
+(-128 being the minimum); and positive values represent
+higher intensities (+127 being the maximum).
+</LI><LI>
+The remaining bits are used for flashing the overlay.
+Each time you increment the value represented by these
+bits, the overlay will be modulated periodically to
+a different colour. The expectation is that if you
+want a flashing overlay, you will call the present
+function every half second or so.
+</LI></UL><P>
+ Each time you call this function with a different
+value for the 
+<A HREF="kdu$sitor__con$_overlays.html#painting_param">painting_param</A> argument, all active metadata is scheduled for repainting
+with the new parameter. The actual painting occurs
+during calls to 
+<A HREF="kdu$sitor__process.html">process</A> &mdash; each call will repaint at most one overlay
+region.
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__get$m_packets.html"> prev </A>||<A HREF="kdu$sitor__upd$_overlays.html"> next </A>|</P>
+</BODY>
+</HTML>

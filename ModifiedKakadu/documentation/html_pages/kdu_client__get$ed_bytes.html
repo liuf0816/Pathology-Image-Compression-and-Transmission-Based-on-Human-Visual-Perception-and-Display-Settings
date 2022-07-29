@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_client::get_received_bytes) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="kdu_client__get$progress.html"> prev </A>|</P>
+<H1><A NAME="ToP">kdu_client::get_received_bytes</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_client.Get_received_bytes</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_client.get_received_bytes</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_client.get_received_bytes</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>int</B> get_received_bytes(
+)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native int Get_received_bytes(
+)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public int get_received_bytes(
+)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function get_received_bytes(
+) &nbsp;As&nbsp;Integer</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+c$o+kdu_client+h.html">"../apps/compressed_io/kdu_client.h"</A>]</P><P><A HREF="kdu_client.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Returns the total number of bytes which have been received
+from the server, including all headers and other overhead
+information. This function differs from 
+<A HREF="kdu_cache__get$red_bytes.html">kdu_cache::get_transferred_bytes</A> in two respects: firstly, it returns only the amount
+of data transferred by the server, not including additional
+bytes which may have been retrieved from a local cache;
+secondly, it includes all the transfer overhead.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="kdu_client__get$progress.html"> prev </A>|</P>
+</BODY>
+</HTML>

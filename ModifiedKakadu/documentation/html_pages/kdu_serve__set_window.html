@@ -1,0 +1,84 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_serve::set_window) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu_serve__destroy.html"> prev </A>||<A HREF="kdu_serve__get_window.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_serve::set_window</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_serve.Set_window</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_serve.set_window</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_serve.set_window</EM></H3></DIR></DIR>
+<P CLASS="function-text"><B>void</B> set_window(
+<A HREF ="kdu_window.html">kdu_window</A>&nbsp;&amp;&nbsp;window)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native void Set_window(
+Kdu_window&nbsp;window)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public void set_window(
+Kdu_window&nbsp;window)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Sub set_window(
+ByVal&nbsp;window&nbsp;As&nbsp;Kdu_window) </EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+k$er+kdu_serve+h.html">"../apps/kdu_server/kdu_serve.h"</A>]</P><P><A HREF="kdu_serve.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Call this function to update the image code-streams,
+components, resolution, spatial region and number of
+quality layers (together designated "the window") which
+are to be used in responding to future calls to 
+<A HREF="kdu_serve__gen$ncrements.html">generate_increments</A>. The server does not care how the window parameters
+are determined, but it may need to modify the window
+parameters in order to satisfy internal resource constraints.
+The 
+<A HREF="kdu_serve__get_window.html">get_window</A> function may be used to determine the actual window
+parameters which are being used at any given point.
+</P><P>
+ Upon initialization, the window is set to refer to
+all image components of the first available code-stream,
+taken over the whole image, but viewed at the lowest
+available resolution (usually a thumbnail). Of course,
+these initial defaults may be overridden at any time,
+even before the first call to 
+<A HREF="kdu_serve__gen$ncrements.html">generate_increments</A>.
+</P><P>
+ Although this function may be called as often as needed,
+there is a computational overhead associated with changes
+in the region of interest. The next time 
+<A HREF="kdu_serve__gen$ncrements.html">generate_increments</A> is called, it will have to build a new list of active
+precincts, which might easily take a milisecond or
+more. Perhaps even more importantly, code-block data
+for the new precincts will need to be loaded from 
+<A HREF="kdu$tream.html">kdu_codestream</A> objects accessed via 
+<B>kdu_serve_target::access_codestream</B>. This may indirectly trigger disk accesses, packet
+parsing and cache management activities. For this reason,
+once you have committed to calling 
+<A HREF="kdu_serve__gen$ncrements.html">generate_increments</A> in response to some new window, you should aim to
+generate a significant amount of data for that window
+before moving on to a new window. The actual minimum
+amount of data which the application chooses to generate
+for one window before moving to another might (ideally)
+be based upon simultaneous estimates of the computational
+complexity and the communication bandwidth to a remote
+client.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="window">window</A> [<A HREF ="kdu_window.html">kdu_window</A>&nbsp;&amp;]</H4><DIV CLASS="indented-text">
+<P>
+The interpretation of this object and its members is
+carefully described in the comments accompanying the
+<A HREF="kdu_window.html">kdu_window</A> object.
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu_serve__destroy.html"> prev </A>||<A HREF="kdu_serve__get_window.html"> next </A>|</P>
+</BODY>
+</HTML>

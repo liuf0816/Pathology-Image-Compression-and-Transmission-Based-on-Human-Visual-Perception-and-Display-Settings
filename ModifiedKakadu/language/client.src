@@ -1,0 +1,5 @@
+-o client_english.cpp
+-i ../apps/compressed_io/kdu_client.h
+-i ../apps/caching_sources/kdu_client.cpp
+-i ../apps/caching_sources/kdu_clientx.cpp
+-i ../apps/caching_sources/client_server_comms.cpp

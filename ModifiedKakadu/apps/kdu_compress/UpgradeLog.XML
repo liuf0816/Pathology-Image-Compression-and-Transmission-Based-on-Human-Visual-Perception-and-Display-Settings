@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="kdu_compress_2005">
+</Property><Property Name="Solution File" Value="C:\Users\Han Oh\Desktop\Fall 2009\kakadu_color\ModifiedKakadu\apps\kdu_compress\kdu_compress_2005.sln">
+</Property><Property Name="Date" Value="Sunday, August 30, 2009">
+</Property><Property Name="Time" Value="17:30:32 PM">
+</Property></Properties><Event ErrorLevel="0" Project="kdu_compress_2005" Source="kdu_compress_2005.vcproj" Description="Web deployment to the local IIS server is no longer supported. The Web Deployment build tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="kdu_compress_2005" Source="kdu_compress_2005.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="0" Project="kdu_compress_2005" Source="kdu_compress_2005.vcproj" Description="Project file successfully backed up as 'C:\Users\Han Oh\Desktop\Fall 2009\kakadu_color\ModifiedKakadu\apps\kdu_compress\kdu_compress_2005.vcproj.8.00.old'.">
+</Event><Event ErrorLevel="0" Project="kdu_compress_2005" Source="kdu_compress_2005.vcproj" Description="Project upgraded successfully.">
+</Event><Event ErrorLevel="3" Project="kdu_compress_2005" Source="kdu_compress_2005.vcproj" Description="Converted">
+</Event></UpgradeLog>

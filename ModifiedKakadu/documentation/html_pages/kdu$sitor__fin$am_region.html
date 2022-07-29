@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_compositor::find_codestream_region) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__fin$er_region.html"> prev </A>||<A HREF="kdu$sitor__get$odestream.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_region_compositor::find_codestream_region</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_compositor.Find_codestream_region</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_compositor.find_codestream_region</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_compositor.find_codestream_region</EM></H3></DIR></DIR>
+<P CLASS="function-text"><A HREF ="kdu_dims.html">kdu_dims</A> find_codestream_region(
+<B>int</B>&nbsp;codestream_idx,
+<B>int</B>&nbsp;instance,
+<B>bool</B>&nbsp;apply_cropping)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native Kdu_dims Find_codestream_region(
+int&nbsp;codestream_idx,
+int&nbsp;instance,
+boolean&nbsp;apply_cropping)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public Kdu_dims find_codestream_region(
+int&nbsp;codestream_idx,
+int&nbsp;instance,
+bool&nbsp;apply_cropping)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function find_codestream_region(
+ByVal&nbsp;codestream_idx&nbsp;As&nbsp;Integer,
+ByVal&nbsp;instance&nbsp;As&nbsp;Integer,
+ByVal&nbsp;apply_cropping&nbsp;As&nbsp;Boolean) &nbsp;As&nbsp;Kdu_dims</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$n_compositor+h.html">"../apps/support/kdu_region_compositor.h"</A>]</P><P><A HREF="kdu$sitor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Returns the location and dimensions of the indicated
+codestream, as it appears on the composited image.
+The returned dimensions are expressed using the same
+coordinate system as that associated with 
+<A HREF="kdu$sitor__set$r_surface.html">set_buffer_surface</A>.
+</P><P>
+ The same codestream can actually be used multiple
+times within a composition. To distinguish between
+the different possible uses, the 
+<A HREF="kdu$sitor__fin$am_region.html#instance">instance</A> argument may be scanned from 0 and up, until the function
+returns an empty region.
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ReturnS">Return Value</A></H2><DIV CLASS="indented-text">
+<P>
+An empty region if the indicated codestream or instance
+are not used within the current composition.
+</P>
+</DIV>
+<H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="codestream_idx">codestream_idx</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+<P>
+Index, starting from 0, of the codestream in the data
+source. For non-JPX data sources, the only value for
+which a non-empty region can be returned is 0.
+</P>
+</DIV>
+<H4><A NAME="instance">instance</A> [<B>int</B>]</H4><DIV CLASS="indented-text">
+<P>
+If 0, the top-most instance of the codestream will
+be used; if 1, the second-top-most instance of the
+codestream is used; and so forth.
+</P>
+</DIV>
+<H4><A NAME="apply_cropping">apply_cropping</A> [<B>bool</B>]</H4><DIV CLASS="indented-text">
+<P>
+If true, the returned region corresponds to the portion
+of the codestream which actually contributes to the
+composited image. Note, however, that compositing layers
+and codestreams may have been cropped before being
+placed on the compositing surface. If this argument
+is false, the function returns the size of the complete
+codestream, and the location of its upper left hand
+corner, as if the cropping had not been performed,
+but all scaling and geometric adjustments are as before.
+In this case, the returned region need not lie wholly
+within the composited image region returned by 
+<A HREF="kdu$sitor__get$tion_dims.html">get_total_composition_dims</A>.
+</P>
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ReturnS"> return value </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__fin$er_region.html"> prev </A>||<A HREF="kdu$sitor__get$odestream.html"> next </A>|</P>
+</BODY>
+</HTML>

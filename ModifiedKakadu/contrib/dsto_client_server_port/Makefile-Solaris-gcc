@@ -1,0 +1,79 @@
+KDU_GLIBS =
+# KDU_GLIBS += -static -static-libgcc # Uncomment this to get a static build
+
+CC = g++
+
+MANAGED_DIR = ../../managed
+BIN_DIR = ../../bin/Solaris-gcc
+LIB_DIR = ../../lib/Solaris-gcc
+LIB_SRC = $(LIB_DIR)/libkdu_aux.a $(LIB_DIR)/libkdu.a
+
+INCLUDES = -I$(MANAGED_DIR)/all_includes -I.
+C_OPT = -O2 -DNDEBUG -Wall -Wno-uninitialized -Wno-deprecated $(KDU_GLIBS)
+C_OPT += -fPIC -fno-strict-aliasing
+C_OPT += -DKDU_NO_SCHED_SUPPORT # See "Compilation_Instructions.txt"
+
+DEFINES = -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
+DEFINES += -D_GNU_SOURCE  # Full pthread support not available otherwise
+
+CFLAGS = $(INCLUDES) $(C_OPT) $(DEFINES)
+
+LIBS = -lm -lpthread -lsocket -lnsl -lrt
+
+MOCK_HEADERS = windows.h process.h winsock2.h
+SUBST_HEADER = sysIF.h
+XFER_HEADERS = client_server_comms.h kdu_client.h kdu_security.h client_local.h
+
+HEADER_DEPENDENCIES = $(XFER_HEADERS) $(MOCK_HEADERS)
+
+SERVER_OBJS = sysIF.o connection.o delivery.o kdu_security.o client_server_comms.o
+CLIENT_OBJS = sysIF.o client_server_comms.o kdu_client.o
+
+all :: kdu_server libkdu_client.a
+
+clean:
+	rm -f *.o *.so *.a $(MOCK_HEADERS) $(SUBST_HEADERS)
+
+kdu_server :: $(HEADER_DEPENDENCIES) $(SERVER_OBJS) $(LIB_SRC)
+	$(CC) $(CFLAGS) kdu_server.cpp $(SERVER_OBJS) $(LIB_SRC) \
+	      -o $(BIN_DIR)/kdu_server $(LIBS)
+
+libkdu_client.a :: $(CLIENT_OBJS)
+	ar -rvc $(LIB_DIR)/libkdu_client.a $(CLIENT_OBJS)
+	ranlib $(LIB_DIR)/libkdu_client.a
+
+sysIF.o :: sysIF.c
+	$(CC) $(CFLAGS) -c sysIF.c -o sysIF.o
+
+client_server_comms.o :: $(HEADER_DEPENDENCIES) client_server_comms.cpp
+	$(CC) $(CFLAGS) -c client_server_comms.cpp -o client_server_comms.o
+
+connection.o :: $(HEADER_DEPENDENCIES) connection.cpp
+	$(CC) $(CFLAGS) -c connection.cpp -o connection.o
+
+delivery.o :: $(HEADER_DEPENDENCIES) delivery.cpp
+	$(CC) $(CFLAGS) -c delivery.cpp -o delivery.o
+
+kdu_security.o :: $(HEADER_DEPENDENCIES) ../../apps/kdu_server/kdu_security.cpp
+	$(CC) $(CFLAGS) -c ../../apps/kdu_server/kdu_security.cpp -o kdu_security.o
+
+client_server.o :: $(HEADER_DEPENDENCIES) client_server.cpp
+	$(CC) $(CFLAGS) -c client_server.cpp -o client_server.o
+
+kdu_client.o :: $(HEADER_DEPENDENCIES) kdu_client.cpp
+	$(CC) $(CFLAGS) -c kdu_client.cpp -o kdu_client.o
+
+$(MOCK_HEADERS): $(SUBST_HEADER)
+	@cp -f $(SUBST_HEADER) $@
+
+kdu_client.h :: ../../apps/compressed_io/kdu_client.h
+	     cp -f ../../apps/compressed_io/kdu_client.h .
+
+client_server_comms.h :: ../../apps/caching_sources/client_server_comms.h
+	     cp -f ../../apps/caching_sources/client_server_comms.h .
+
+client_local.h :: ../../apps/caching_sources/client_local.h
+	     cp -f ../../apps/caching_sources/client_local.h .
+
+kdu_security.h :: ../../apps/kdu_server/kdu_security.h
+	     cp -f ../../apps/kdu_server/kdu_security.h .

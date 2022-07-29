@@ -1,0 +1,57 @@
+License to use DSTO Port of Kakadu Server and Client Components
+---------------------------------------------------------------
+1. Definitions
+1.1. "Kakadu License" means the commercial or non-commercial license under
+     which this copy of the Kakadu software has been legally distributed,
+     and includes all terms and conditions of that Kakadu license.
+1.2. "DSTO" refers to the Defense Science and Techology Organization of
+     the Australian Department of Defence.
+1.3. "DSTO Ported Files" refers to the files "client_server_comms.cpp",
+     "connection.cpp", "delivery.cpp", "kdu_client.cpp", "kdu_server.cpp"
+     and "server_local.h", as found in
+         "<distribution>/contrib/dsto_client_server_port",
+     each of which is a modified version of the Kakadu original file of
+     the same name, as found under the "<distribution>/apps"
+     directory, in which "<distribution>" is the root directory of the
+     relevant Kakadu distribution.
+1.4. "DSTO Original Files" refers to the files "sysIF.c" and "sysIF.h",
+     as found in the same directory referenced in 1.3 above.
+1.5. "DSTO Port" refers to all source code and object code derived from
+     the DSTO Ported Files or DSTO Original Files, as defined above.
+
+2. License
+2.1. The licensee is permitted to use the DSTO Port under the same terms
+     and conditions set out in the applicable Kakadu License.
+2.2. The licensee agrees not to use the DSTO Port in any way which would
+     infringe the terms and conditions set out in the applicable Kakadu
+     License.
+2.3. The licensee accepts full responsibility for any use of the DSTO
+     Port by themselves or any third party to whom software based on the
+     DSTO Port is legally transferred, under the terms of the applicable
+     Kakadu License.
+
+3. Warranties and Liability
+3.1. Nothing in this agreement is to be construed as a representation or
+     warrantee that the use of the "DSTO Port" will not infringe any third
+     party Intellectual Property rights.
+3.2. Neither NSI (formerly Unisearch) nor the DSTO shall be liable for any
+     indirect or consequential loss (whether foreseeable or otherwise and
+     including loss of profits, loss of business, loss of opportunity, and
+     loss of use of any computer hardware or software) resulting from the
+     use of this software.
+3.3. The DSTO does not give any warranty nor accept any liability in
+     relation to the DSTO Port, except to the extent, if any, required
+     by law.  If, apart from this clause, any warranty or condition would
+     be implied, whether by law, custom or otherwise, that warranty or
+     condition is, to the fullest extent permitted by law, hereby
+     excluded.  With respect to any non-excludable implied warranty or
+     condition, the DSTO's liability to breach thereof is limited to the
+     fullest extent permitted by law, and without limiting the generality of
+     the foregoing, where such liability can be limited to the replacement or
+     repair of goods or the resupply of services or the payment of the
+     cost of such replacement, repair or resupply, such liability shall
+     be limited to any one or more of them at the DSTO's discretion.
+3.4. Nothing in this agreement shall be read or applied so as to exclude,
+     restrict or modify the application of any applicable Australian
+     Commonwealth, State or Territory law which by law cannot be
+     excluded, restricted or modified.

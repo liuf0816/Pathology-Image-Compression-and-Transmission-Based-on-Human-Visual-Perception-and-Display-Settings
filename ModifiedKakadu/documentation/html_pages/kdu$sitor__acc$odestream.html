@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<TITLE> Kakadu Hyper-Doc (kdu_region_compositor::access_codestream) </TITLE>
+<STYLE TYPE="text/css">
+<!--
+.indented-text { padding-left: 20pt; }
+.function-text { padding-left: 80pt;
+                 text-indent: -60pt; }
+-->
+</STYLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" BGCOLOR="#B4DCB4">
+<P ALIGN="RIGHT">|<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__get$1odestream.html"> prev </A>||<A HREF="kdu$sitor__get$ream_info.html"> next </A>|</P>
+<H1><A NAME="ToP">kdu_region_compositor::access_codestream</A></H1>
+<DIR><DIR><H3><EM><U>Java:</U> Kdu_region_compositor.Access_codestream</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>C#:</U> Ckdu_region_compositor.access_codestream</EM></H3></DIR></DIR>
+<DIR><DIR><H3><EM><U>VB:</U> Ckdu_region_compositor.access_codestream</EM></H3></DIR></DIR>
+<P CLASS="function-text"><A HREF ="kdu$tream.html">kdu_codestream</A> access_codestream(
+<B>kdrc_stream</B>&nbsp;*&nbsp;stream_ref)</P>
+<DIR><DIR><P CLASS="function-text"><EM><U>Java:</U> public native Kdu_codestream Access_codestream(
+long&nbsp;stream_ref)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>C#:</U> public Kdu_codestream access_codestream(
+IntPtr)</EM></P></DIR></DIR>
+<DIR><DIR><P CLASS="function-text"><EM><U>VB:</U> Public Function access_codestream(
+ByVal&nbsp;As&nbsp;IntPtr) &nbsp;As&nbsp;Kdu_codestream</EM></P></DIR></DIR>
+<P>[Declared in <A HREF="++++apps+s$n_compositor+h.html">"../apps/support/kdu_region_compositor.h"</A>]</P><P><A HREF="kdu$sitor.html">Go to class description.</A></P>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="SynopsiS">Synopsis</A></H2>
+<DIV CLASS="indented-text">
+<P>
+Use this function with the 
+<B>kdrc_stream</B> pointer returned by a previous call to 
+<A HREF="kdu$sitor__get$odestream.html">get_next_codestream</A> or 
+<A HREF="kdu$sitor__get$1odestream.html">get_next_visible_codestream</A>. It returns an interface to the actual JPEG2000 code-stream
+being used by the layer codestream.
+</P><P>
+ Note that the 
+<B>kdrc_stream</B> pointers returned by 
+<A HREF="kdu$sitor__get$odestream.html">get_next_codestream</A> or 
+<A HREF="kdu$sitor__get$1odestream.html">get_next_visible_codestream</A> must be considered invalid and not passed to the present
+function, if the composition has since been modified
+by a call to any of 
+<A HREF="kdu$sitor__set_frame.html">set_frame</A>, 
+<A HREF="kdu$sitor__add$ing_layer.html">add_compositing_layer</A>, 
+<A HREF="kdu$sitor__rem$ing_layer.html">remove_compositing_layer</A>, 
+<A HREF="kdu$sitor__set$component.html">set_single_component</A> or 
+<A HREF="kdu$sitor__cul$ve_layers.html">cull_inactive_layers</A>.
+</P><P>
+ Note also that this function automatically halts any
+internal processing which is using the identified codestream,
+so that you will be free to change its appearance via
+the 
+<A HREF="kdu$tream__app$trictions__1.html">kdu_codestream::apply_input_restrictions</A> and/or 
+<A HREF="kdu$tream__cha$ppearance.html">kdu_codestream::change_appearance</A> functions. When you receive the codestream, however,
+its appearance is in an unknown state, so any operations
+you wish to perform which depend upon the codestream
+appearance should be preceded by calls to the above-mentioned
+functions.
+</P><P>
+ As a general rule of thumb, you should not continue
+to access the codestream interface returned by this
+function after subsequent invocation of any of the
+<A HREF="kdu$sitor.html">kdu_region_compositor</A> object's interface functions. This is by far the safest
+policy. In particular, you should definitely refrain
+from calling the 
+<A HREF="kdu$sitor__process.html">process</A> or 
+<A HREF="kdu$sitor__set_scale.html">set_scale</A> functions while continuing to use the returned codestream
+interface.
+</P><P>
+ Since frequent halting and restarting of internal
+processing can be computationally expensive, it is
+best to avoid calling this function too frequently,
+or to do so only when the object is in the idle state
+(as indicated by the 
+<A HREF="kdu$sitor__is_$_complete.html">is_processing_complete</A> function).
+</P>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><H2><A NAME="ArgS">Arguments</A></H2><DIV CLASS="indented-text">
+<H4><A NAME="stream_ref">stream_ref</A> [<B>kdrc_stream</B>&nbsp;*]</H4><DIV CLASS="indented-text">
+</DIV>
+</DIV>
+
+<P ALIGN="CENTER"><HR></P><P ALIGN="RIGHT">|<A HREF="#ToP"> top </A>||<A HREF="#SynopsiS"> synopsis </A>||<A HREF="#ArgS"> arguments </A>||<A HREF="kdu$sitor__get$1odestream.html"> prev </A>||<A HREF="kdu$sitor__get$ream_info.html"> next </A>|</P>
+</BODY>
+</HTML>
